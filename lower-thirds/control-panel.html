@@ -25,7 +25,11 @@
 </div>
 	</div>
 	<div class="panel-bottom">
+
+<div>
+  <br>
 		<h3>Preimpostazioni</h3>
+    <br>
   <div id="accordion">
     <div>
       <h5 class="mb-0">
@@ -42,7 +46,7 @@
     		</ul>
       </div>
     </div>
-  </div>
+  </div><br>
   <div>
   <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -58,7 +62,91 @@
     </div>
   </div>
 </div>
-
+</div>
+<br>
+<div>
+  <h3>Colori</h3>
+  <br>
+    <div class="d-flex justify-content-center">
+      <button class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#sfondo1" aria-expanded="false" aria-controls="sfondo1" style="background-color: rgb(32, 32, 32);"></button>
+      <button class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#color1" aria-expanded="false" aria-controls="color1" style="background-color: rgb(255, 133, 0);"></button>
+      <button class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#color2" aria-expanded="false" aria-controls="color2" style="background-color: rgb(0, 179, 255);"></button>
+      <button class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#sfondo2" aria-expanded="false" aria-controls="sfondo2" style="background-color: rgb(42, 111, 141);"></button>
+      <button class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#testo1" aria-expanded="false" aria-controls="testo1" style="background-color: rgb(255, 255, 255);"></button>
+      <button class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#testo2" aria-expanded="false" aria-controls="testo2" style="background-color: rgb(255, 255, 255);"></button>
+    </div>
+    <div id="colori">
+      <div id="sfondo1" class="collapse show" aria-labelledby="sfondo1" data-parent="#colori">
+        <br>
+        <h6>SFONDO - NOME</h6>
+        <form class="d-flex justify-content-center">
+            <div class="form-row align-items-center">
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">R</div>
+                  </div>
+                  <input type="number" class="form-control" id="reds1" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">G</div>
+                  </div>
+                  <input type="number" class="form-control" id="greens1" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">B</div>
+                  </div>
+                  <input type="number" class="form-control" id="blues1" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col-auto my-1">
+                <button type="submit" class="btn btn-primary">Salva</button>
+              </div>
+            </div>
+        </form>
+      </div>
+      <div id="sfondo2" class="collapse" aria-labelledby="sfondo2" data-parent="#colori">
+        <br>
+        <h6>SFONDO - RUOLO</h6>
+        <form class="d-flex justify-content-center">
+            <div class="form-row align-items-center">
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">R</div>
+                  </div>
+                  <input type="number" class="form-control" id="reds2" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">G</div>
+                  </div>
+                  <input type="number" class="form-control" id="greens2" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">B</div>
+                  </div>
+                  <input type="number" class="form-control" id="blues2" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col-auto my-1">
+                <button type="submit" class="btn btn-primary">Salva</button>
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
 	<div>
 
 	<script>
@@ -68,6 +156,11 @@
 			$("#lower-thirds-name:text").val(cur_name);
 			$("#lower-thirds-function:text").val(cur_function);
 		});
+
+    $.getJSON("settings.json", function(json) {
+    console.log(json);
+  });
+
 		var bc = new BroadcastChannel('obs-lower-thirds-channel');
 		function function_send() {
 			name_to_send = $("#lower-thirds-name:text").val();

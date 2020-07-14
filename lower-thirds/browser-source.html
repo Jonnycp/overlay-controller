@@ -9,7 +9,7 @@
             overflow: hidden;
         }
         #lottie{
-            background-color:#fff;
+            background-color: rgba(0, 0, 0, 0);
             width:100%;
             height:100%;
             display:block;
@@ -21,7 +21,7 @@
 
     </style>
 </head>
-<body>
+<body style="background-color: rgba(0, 0, 0, 0);">
 <!-- build:scripto --><script>(typeof navigator !== "undefined") && (function(root, factory) {
     if (typeof define === "function" && define.amd) {
         define(function() {
@@ -61,7 +61,24 @@ return lottie;
     var funzione = received_data[1];
     position = received_data[2];
     animation = received_data[3];
+    var colori = [
+        [32, 32, 32], //Nome - sfondo
+        [255, 133, 0], //Giallo - color1
+        [0, 179, 255], //Azzurro - color2
+        [42, 111, 141], //Ruolo - sfondo
+        [255, 255, 255], //Nome - colore testo
+        [255, 255, 255], //Ruolo - colore testo
+      ];
+    var lottiecolors = [
+        [(colori[0][0]/255), (colori[0][1]/255), (colori[0][2]/255)], //Nome sfondo
+        [(colori[1][0]/255), (colori[1][1]/255), (colori[1][2]/255)], //Giallo
+        [(colori[2][0]/255), (colori[2][1]/255), (colori[2][2]/255)], //Azzurro
+        [(colori[3][0]/255), (colori[3][1]/255), (colori[3][2]/255)], //Ruolo sfondo
+        [(colori[4][0]/255), (colori[4][1]/255), (colori[4][2]/255)], //Nome
+        [(colori[5][0]/255), (colori[5][1]/255), (colori[5][2]/255)], //Ruolo
+    ];
     console.log ('Name: ' + received_data[0] + ', Function: ' + received_data[1] + ', Position: ' + received_data[2] + ', Animation: ' + received_data[3]);
+    console.log (JSON.stringify(lottiecolors, null, 4));
 /*  if (animation == 'animateIn') {document.getElementById("lower-third").classList.remove("animateOut");document.getElementById("lower-third").classList.add("animateIn");};
   if (animation == 'animateOut') {document.getElementById("lower-third").classList.remove("animateIn");document.getElementById("lower-third").classList.add("animateOut");};
   if (position == 'left') {document.getElementById("lower-third").classList.remove("right");document.getElementById("lower-third").classList.add("left");};
@@ -241,7 +258,7 @@ var animationData = {
             "ix": 1,
             "v": {
                 "a": 0,
-                "k": [1, 0.521568655968, 0, 1],
+                "k": [lottiecolors[1][0], lottiecolors[1][1], lottiecolors[1][2], 1], //Giallo
                 "ix": 1
             }
         }]
@@ -259,7 +276,7 @@ var animationData = {
             "ix": 1,
             "v": {
                 "a": 0,
-                "k": [0, 0.701960802078, 1, 1],
+                "k": [lottiecolors[2][0], lottiecolors[2][1], lottiecolors[2][2], 1], //Azzurro sopra
                 "ix": 1
             }
         }]
@@ -407,7 +424,7 @@ var animationData = {
             "ty": "fl",
             "c": {
                 "a": 0,
-                "k": [0.166228440229, 0.438701465083, 0.554151348039, 1],
+                "k": [lottiecolors[3][0], lottiecolors[3][1], lottiecolors[3][2], 1], //Azzurro sotto
                 "ix": 4
             },
             "o": {
@@ -572,7 +589,7 @@ var animationData = {
             "ty": "fl",
             "c": {
                 "a": 0,
-                "k": [0.166228440229, 0.438701465083, 0.554151348039, 1],
+                "k": [lottiecolors[3][0], lottiecolors[3][1], lottiecolors[3][2], 1], //Azzurro sotto
                 "ix": 4
             },
             "o": {
@@ -723,7 +740,7 @@ var animationData = {
             "ty": "fl",
             "c": {
                 "a": 0,
-                "k": [0.127052696078, 0.127052696078, 0.127052696078, 1],
+                "k": [lottiecolors[0][0], lottiecolors[0][1], lottiecolors[0][2], 1], //Nero sfondo
                 "ix": 4
             },
             "o": {
@@ -850,7 +867,7 @@ var animationData = {
                     "tr": -32,
                     "lh": 66,
                     "ls": 1,
-                    "fc": [1, 1, 1],
+                    "fc": [lottiecolors[4][0], lottiecolors[4][1], lottiecolors[4][2]], //Colore nome
                     "sc": [0, 0, 0],
                     "sw": 0.00999999977648,
                     "of": true
@@ -1023,7 +1040,7 @@ var animationData = {
             "ty": "fl",
             "c": {
                 "a": 0,
-                "k": [0.127052696078, 0.127052696078, 0.127052696078, 1],
+                "k": [lottiecolors[0][0], lottiecolors[0][1], lottiecolors[0][2], 1], //Nero sfondo
                 "ix": 4
             },
             "o": {
@@ -1518,7 +1535,7 @@ var animationData = {
             "ty": "fl",
             "c": {
                 "a": 0,
-                "k": [0.166228440229, 0.438701465083, 0.554151348039, 1],
+                "k": [lottiecolors[3][0], lottiecolors[3][1], lottiecolors[3][2], 1], //Azzurro sotto
                 "ix": 4
             },
             "o": {
@@ -1645,7 +1662,7 @@ var animationData = {
                     "tr": -32,
                     "lh": 26.5200004577637,
                     "ls": 1,
-                    "fc": [1, 1, 1],
+                    "fc": [lottiecolors[5][0], lottiecolors[5][1], lottiecolors[5][2]], //Colore funzione
                     "sc": [0, 0, 0],
                     "sw": 0.00999999977648,
                     "of": true
@@ -1770,7 +1787,7 @@ var animationData = {
             "ty": "fl",
             "c": {
                 "a": 0,
-                "k": [0.166228440229, 0.438701465083, 0.554151348039, 1],
+                "k": [0.166228440229, 0.438701465083, 0.554151348039, 1], //Azzurro sotto
                 "ix": 4
             },
             "o": {

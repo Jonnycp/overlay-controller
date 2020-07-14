@@ -40,7 +40,7 @@ body.browser-source.clock{
 	max-width:100em;
 	margin:1em;
 	}
-	
+
 .panel input#lower-thirds-name, .panel input#lower-thirds-function {
 	box-sizing: border-box;
 	padding:.75em;
@@ -49,13 +49,13 @@ body.browser-source.clock{
 	display:block;
 	width:100%;
 }
-	
+
 .panel button{
 	background: var(--obs-button-background);
 	border: 1px solid var(--obs-button-border);
 	color: var(--obs-button-color);
 	padding:.75em;
-	margin:0 0 1em;
+	/*margin:0 0 1em;*/
 	text-align:center;
 	width:100%;
 }
@@ -82,7 +82,7 @@ body.browser-source.clock{
 .panel .radio-position input:checked{
 	background:red
 }
-	
+
 .panel ul#predefined {
     list-style: none;
     padding: 0;
@@ -90,7 +90,7 @@ body.browser-source.clock{
 
 .panel ul#predefined li .name, ul#predefined li .function {
     display: inline-block;
-}	
+}
 
 .panel ul#predefined li {
     padding: .5em 1em;
@@ -109,40 +109,40 @@ body.browser-source.clock{
 		position:relative;
 		overflow:hidden
 		}
-		
-		
+
+
 		#lower-third, #lower-third.left, #lower-third.right{
 		position:absolute;
 		display:inline-block;
 		transition: all .5s;
 		}
-		
-		
+
+
 		#lower-third.left{left:0}
 		#lower-third.right{right:0}
-		
+
 		#lower-third .left-block, #lower-third .right-block{
 		display:inline-block
 		}
-		
+
 		#lower-third .left-block{
 		border-right:1px solid #333;
 		padding-right:.5em;
 		margin-right:.5em
 		}
-		
+
 		#lower-third .left-block img{
 		height:7em
 		}
-		
-	
+
+
 		body.browser-source.lower-thirds #lower-third #name {
 		font: bold 4vw 'Roboto Condensed', sans-serif;
 		color: #555;
 		left: 0;
 		top: 0;
 		}
-		
+
 		body.browser-source.lower-thirds #lower-third #function {
 		font: bold 2vw 'Roboto Condensed', sans-serif;
 		color: #999;
@@ -165,4 +165,8 @@ body.browser-source.clock{
 
 #lower-third.animateOut.right{
 	right: -100vw;
+}
+
+.marg{
+  margin-right: 1.5%;
 }

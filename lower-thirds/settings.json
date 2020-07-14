@@ -1,0 +1,18 @@
+{"dati":[
+  {"persone":[
+      {"name" : "Piergiuseppe Rossi", "ruolo" : "Il corpo e la macchina", "tipo" : "OSPITI"},
+      {"name" : "Simone Arcagni", "ruolo" : "Nuovi scenari mediali nel rapporto uomo-macchina", "tipo" : "OSPITI"},
+      {"name" : "Orsola Rignani", "ruolo" : "Il corpo virtuale come possibilità", "tipo" : "OSPITI"},
+      {"name" : "Jonathan Caputo", "ruolo" : "Regista e tecnico", "tipo" : "RADIO PANETTI"},
+      {"name" : "Andrea Ottomanelli", "ruolo" : "Regista e tecnico", "tipo" : "RADIO PANETTI"}
+      ]},
+
+    {"colori":[
+      {"tipo" : "Sfondo1", "r" : "32", "g" : "32", "b" : "32"},
+      {"tipo" : "Sfondo2", "r" : "42", "g" : "111", "b" : "141"},
+      {"tipo" : "Color1", "r" : "255", "g" : "133", "b" : "0"},
+      {"tipo" : "Color2", "r" : "0", "g" : "179", "b" : "255"},
+      {"tipo" : "Testo1", "r" : "255", "g" : "255", "b" : "255"},
+      {"tipo" : "Testo2", "r" : "255", "g" : "255", "b" : "255"}
+    ]}
+]}
