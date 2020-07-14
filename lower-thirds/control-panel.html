@@ -158,7 +158,7 @@
 		});
 
     $.getJSON("settings.json", function(json) {
-    document.getElementById("reds1").setAttribute("value", json.dati[1][0].r);
+    document.getElementById("reds1").setAttribute("value", json.dati.colori[0].r);
   });
 
 		var bc = new BroadcastChannel('obs-lower-thirds-channel');
