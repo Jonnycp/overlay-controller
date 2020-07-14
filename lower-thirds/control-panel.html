@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -24,23 +25,40 @@
 </div>
 	</div>
 	<div class="panel-bottom">
-		<h3>Lower thirds list</h3>
-		<ul id="predefined">
-			<li><div class="name">Jonathan Caputo</div><div class="function">Regista</div></li>
-			<li><div class="name">Andrea Ottomanelli</div><div class="function">Regista</div></li>
-			<li><div class="name">Dorris Baumbach</div><div class="function">Air traffic controller</div></li>
-			<li><div class="name">Mateo Gleason</div><div class="function">Physician's assistant</div></li>
-			<li><div class="name">Edwin Lang</div><div class="function">Carpet designer</div></li>
-			<li><div class="name">Jude Stoltenberg</div><div class="function">Butcher</div></li>
-			<li><div class="name">Caroline McKenzie PhD</div><div class="function">Veterinarian</div></li>
-			<li><div class="name">Stephon Zieme</div><div class="function">Surgeon</div></li>
-			<li><div class="name">Maverick Nicolas DDS</div><div class="function">CEO</div></li>
-			<li><div class="name">Cortez Heller</div><div class="function">Air traffic controller</div></li>
-			<li><div class="name">Libbie Effertz</div><div class="function">Doctor</div></li>
-			<li><div class="name">Zoie Keeling</div><div class="function">Therapist</div></li>
-			<li><div class="name">Rigoberto Macejkovic</div><div class="function">Dental hygienist</div></li>
-			<li><div class="name">Magdalena Stehr</div><div class="function">Businesswoman</div></li>
-		</ul>
+		<h3>Preimpostazioni</h3>
+  <div id="accordion">
+    <div>
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          OSPITI
+        </button>
+      </h5>
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion" style="">
+      <div class="card-body">
+        <ul id="predefined">
+    			<li><div class="name">Piergiuseppe Rossi</div><div class="function">Il corpo e la macchina</div></li>
+    			<li><div class="name">Simone Arcagni</div><div class="function">Nuovi scenari mediali nel rapporto uomo-macchina</div></li>
+    			<li><div class="name">Orsola Rignani</div><div class="function">Il corpo virtuale come possibilità</div></li>
+    		</ul>
+      </div>
+    </div>
+  </div>
+  <div>
+  <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          RADIO PANETTI
+        </button>
+      </h5><div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion" style="">
+      <div class="card-body">
+        <ul id="predefined">
+    			<li><div class="name">Jonathan Caputo</div><div class="function">Regista</div></li>
+    			<li><div class="name">Andrea Ottomanelli</div><div class="function">Regista</div></li>
+    		</ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 	<div>
 
 	<script>
@@ -64,6 +82,9 @@
 			bc.postMessage('|||animateOut'); /* send - only last parameter*/
 		}
 	</script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   </body>
 </html>
