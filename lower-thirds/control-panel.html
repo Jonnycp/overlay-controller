@@ -8,6 +8,7 @@
     <title>Lower thirds control panel</title>
 	<link rel="stylesheet" href="../common/css/style-001.css">
 	<script src="../common/js/jquery.js"></script>
+<script type="text/javascript" src="settings.js"></script>
   </head>
   <body class="lower-thirds-panel panel">
 	<div class="static-panel-top">
@@ -40,9 +41,7 @@
       <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion" style="">
       <div class="card-body">
         <ul id="predefined">
-    			<li><div class="name">Piergiuseppe Rossi</div><div class="function">Il corpo e la macchina</div></li>
-    			<li><div class="name">Simone Arcagni</div><div class="function">Nuovi scenari mediali nel rapporto uomo-macchina</div></li>
-    			<li><div class="name">Orsola Rignani</div><div class="function">Il corpo virtuale come possibilità</div></li>
+          <div id=ospiti></div>
     		</ul>
       </div>
     </div>
@@ -55,8 +54,26 @@
       </h5><div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion" style="">
       <div class="card-body">
         <ul id="predefined">
-    			<li><div class="name">Jonathan Caputo</div><div class="function">Regista</div></li>
-    			<li><div class="name">Andrea Ottomanelli</div><div class="function">Regista</div></li>
+    			<div id=rp></div>
+          <script>
+          let html = "";
+          persone.ospiti.forEach(function(element) {
+            let ospite = element;
+            html +=`
+            <li><div class="name">${ospite[0]}</div><div class="function">${ospite[1]}</div></li>
+            `
+          });
+          document.querySelector('#ospiti').innerHTML = html;
+
+          let htmlRP = "";
+          persone.radiopanetti.forEach(function(element) {
+            let rp = element;
+            htmlRP +=`
+            <li><div class="name">${rp[0]}</div><div class="function">${rp[1]}</div></li>
+            `
+          });
+          document.querySelector('#rp').innerHTML = htmlRP;
+          </script>
     		</ul>
       </div>
     </div>
@@ -68,12 +85,12 @@
   <h3>Colori</h3>
   <br>
     <div class="d-flex justify-content-center">
-      <button class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#sfondo1" aria-expanded="false" aria-controls="sfondo1" style="background-color: rgb(32, 32, 32);"></button>
-      <button class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#color1" aria-expanded="false" aria-controls="color1" style="background-color: rgb(255, 133, 0);"></button>
-      <button class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#color2" aria-expanded="false" aria-controls="color2" style="background-color: rgb(0, 179, 255);"></button>
-      <button class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#sfondo2" aria-expanded="false" aria-controls="sfondo2" style="background-color: rgb(42, 111, 141);"></button>
-      <button class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#testo1" aria-expanded="false" aria-controls="testo1" style="background-color: rgb(255, 255, 255);"></button>
-      <button class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#testo2" aria-expanded="false" aria-controls="testo2" style="background-color: rgb(255, 255, 255);"></button>
+      <button id="sfondo1q" class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#sfondo1" aria-expanded="false" aria-controls="sfondo1" style="background-color: rgb(32, 32, 32);"></button>
+      <button id="color1q" class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#color1" aria-expanded="false" aria-controls="color1" style="background-color: rgb(255, 133, 0);"></button>
+      <button id="color2q" class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#color2" aria-expanded="false" aria-controls="color2" style="background-color: rgb(0, 179, 255);"></button>
+      <button id="sfondo2q" class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#sfondo2" aria-expanded="false" aria-controls="sfondo2" style="background-color: rgb(42, 111, 141);"></button>
+      <button id="testo1q" class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#testo1" aria-expanded="false" aria-controls="testo1" style="background-color: rgb(255, 255, 255);"></button>
+      <button id="testo2q" class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#testo2" aria-expanded="false" aria-controls="testo2" style="background-color: rgb(255, 255, 255);"></button>
     </div>
     <div id="colori">
       <div id="sfondo1" class="collapse show" aria-labelledby="sfondo1" data-parent="#colori">
@@ -86,7 +103,7 @@
                   <div class="input-group-prepend">
                     <div class="input-group-text">R</div>
                   </div>
-                  <input type="number" class="form-control" id="reds1" maxlength="3" max="255" min="0">
+                  <input type="number" class="form-control" disabled id="reds1" maxlength="3" max="255" min="0">
                 </div>
               </div>
               <div class="col">
@@ -94,7 +111,7 @@
                   <div class="input-group-prepend">
                     <div class="input-group-text">G</div>
                   </div>
-                  <input type="number" class="form-control" id="greens1" maxlength="3" max="255" min="0">
+                  <input type="number" class="form-control" disabled id="greens1" maxlength="3" max="255" min="0">
                 </div>
               </div>
               <div class="col">
@@ -102,11 +119,11 @@
                   <div class="input-group-prepend">
                     <div class="input-group-text">B</div>
                   </div>
-                  <input type="number" class="form-control" id="blues1" maxlength="3" max="255" min="0">
+                  <input type="number" class="form-control" disabled id="blues1" maxlength="3" max="255" min="0">
                 </div>
               </div>
               <div class="col-auto my-1">
-                <button type="submit" class="btn btn-primary">Salva</button>
+                <a href="settings.js" target="_blank" class="btn btn-info">Apri Opzioni</a>
               </div>
             </div>
         </form>
@@ -121,7 +138,7 @@
                   <div class="input-group-prepend">
                     <div class="input-group-text">R</div>
                   </div>
-                  <input type="number" class="form-control" id="reds2" maxlength="3" max="255" min="0">
+                  <input type="number" class="form-control" disabled id="reds2" maxlength="3" max="255" min="0">
                 </div>
               </div>
               <div class="col">
@@ -129,7 +146,7 @@
                   <div class="input-group-prepend">
                     <div class="input-group-text">G</div>
                   </div>
-                  <input type="number" class="form-control" id="greens2" maxlength="3" max="255" min="0">
+                  <input type="number" class="form-control" disabled id="greens2" maxlength="3" max="255" min="0">
                 </div>
               </div>
               <div class="col">
@@ -137,11 +154,151 @@
                   <div class="input-group-prepend">
                     <div class="input-group-text">B</div>
                   </div>
-                  <input type="number" class="form-control" id="blues2" maxlength="3" max="255" min="0">
+                  <input type="number" class="form-control" disabled id="blues2" maxlength="3" max="255" min="0">
                 </div>
               </div>
               <div class="col-auto my-1">
-                <button type="submit" class="btn btn-primary">Salva</button>
+                <a href="settings.js" target="_blank" class="btn btn-info">Apri Opzioni</a>
+              </div>
+            </div>
+        </form>
+      </div>
+      <div id="color1" class="collapse" aria-labelledby="color1" data-parent="#colori">
+        <br>
+        <h6>COLORE PRINCIPALE</h6>
+        <form class="d-flex justify-content-center">
+            <div class="form-row align-items-center">
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">R</div>
+                  </div>
+                  <input type="number" class="form-control" disabled id="redc1" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">G</div>
+                  </div>
+                  <input type="number" class="form-control" disabled id="greenc1" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">B</div>
+                  </div>
+                  <input type="number" class="form-control" disabled id="bluec1" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col-auto my-1">
+                <a href="settings.js" target="_blank" class="btn btn-info">Apri Opzioni</a>
+              </div>
+            </div>
+        </form>
+      </div>
+      <div id="color2" class="collapse" aria-labelledby="sfondo1" data-parent="#colori">
+        <br>
+        <h6>COLORE SECONDARIO</h6>
+        <form class="d-flex justify-content-center">
+            <div class="form-row align-items-center">
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">R</div>
+                  </div>
+                  <input type="number" class="form-control" disabled id="redc2" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">G</div>
+                  </div>
+                  <input type="number" class="form-control" disabled id="greenc2" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">B</div>
+                  </div>
+                  <input type="number" class="form-control" disabled id="bluec2" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col-auto my-1">
+                <a href="settings.js" target="_blank" class="btn btn-info">Apri Opzioni</a>
+              </div>
+            </div>
+        </form>
+      </div>
+      <div id="testo1" class="collapse" aria-labelledby="testo1" data-parent="#colori">
+        <br>
+        <h6>COLORE TESTO NOME</h6>
+        <form class="d-flex justify-content-center">
+            <div class="form-row align-items-center">
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">R</div>
+                  </div>
+                  <input type="number" class="form-control" disabled id="redt1" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">G</div>
+                  </div>
+                  <input type="number" class="form-control" disabled id="greent1" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">B</div>
+                  </div>
+                  <input type="number" class="form-control" disabled id="bluet1" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col-auto my-1">
+                <a href="settings.js" target="_blank" class="btn btn-info">Apri Opzioni</a>
+              </div>
+            </div>
+        </form>
+      </div>
+      <div id="testo2" class="collapse" aria-labelledby="testo2" data-parent="#colori">
+        <br>
+        <h6>COLORE TESTO RUOLO</h6>
+        <form class="d-flex justify-content-center">
+            <div class="form-row align-items-center">
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">R</div>
+                  </div>
+                  <input type="number" class="form-control" disabled id="redt2" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">G</div>
+                  </div>
+                  <input type="number" class="form-control" disabled id="greent2" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">B</div>
+                  </div>
+                  <input type="number" class="form-control" disabled id="bluet2" maxlength="3" max="255" min="0">
+                </div>
+              </div>
+              <div class="col-auto my-1">
+                <a href="settings.js" target="_blank" class="btn btn-info">Apri Opzioni</a>
               </div>
             </div>
         </form>
@@ -157,9 +314,38 @@
 			$("#lower-thirds-function:text").val(cur_function);
 		});
 
-    $.getJSON("settings.json", function(json) {
-    document.getElementById("reds1").setAttribute("value", json.dati.colori[0].r);
-  });
+    document.body.onload = function(){
+      //SFONDO 1
+      document.getElementById('reds1').setAttribute("value", colori.sfondo1[0]);
+      document.getElementById('greens1').setAttribute("value", colori.sfondo1[1]);
+      document.getElementById('blues1').setAttribute("value", colori.sfondo1[2]);
+      document.getElementById('sfondo1q').setAttribute("style", "background-color: rgb(" + colori.sfondo1[0] + "," + colori.sfondo1[1] + "," + colori.sfondo1[2] + ");");
+      //SFONDO 2
+      document.getElementById('reds2').setAttribute("value", colori.sfondo2[0]);
+      document.getElementById('greens2').setAttribute("value", colori.sfondo2[1]);
+      document.getElementById('blues2').setAttribute("value", colori.sfondo2[2]);
+      document.getElementById('sfondo2q').setAttribute("style", "background-color: rgb(" + colori.sfondo2[0] + "," + colori.sfondo2[1] + "," + colori.sfondo2[2] + ");");
+      //COLOR 1
+      document.getElementById('redc1').setAttribute("value", colori.color1[0]);
+      document.getElementById('greenc1').setAttribute("value", colori.color1[1]);
+      document.getElementById('bluec1').setAttribute("value", colori.color1[2]);
+      document.getElementById('color1q').setAttribute("style", "background-color: rgb(" + colori.color1[0] + "," + colori.color1[1] + "," + colori.color1[2] + ");");
+      //COLOR 2
+      document.getElementById('redc2').setAttribute("value", colori.color2[0]);
+      document.getElementById('greenc2').setAttribute("value", colori.color2[1]);
+      document.getElementById('bluec2').setAttribute("value", colori.color2[2]);
+      document.getElementById('color2q').setAttribute("style", "background-color: rgb(" + colori.color2[0] + "," + colori.color2[1] + "," + colori.color2[2] + ");");
+      //TEXT 1
+      document.getElementById('redt1').setAttribute("value", colori.text1[0]);
+      document.getElementById('greent1').setAttribute("value", colori.text1[1]);
+      document.getElementById('bluet1').setAttribute("value", colori.text1[2]);
+      document.getElementById('testo1q').setAttribute("style", "background-color: rgb(" + colori.text1[0] + "," + colori.text1[1] + "," + colori.text1[2] + ");");
+      //TEXT 2
+      document.getElementById('redt2').setAttribute("value", colori.text2[0]);
+      document.getElementById('greent2').setAttribute("value", colori.text2[1]);
+      document.getElementById('bluet2').setAttribute("value", colori.text2[2]);
+      document.getElementById('testo2q').setAttribute("style", "background-color: rgb(" + colori.text2[0] + "," + colori.text2[1] + "," + colori.text2[2] + ");");
+    };
 
 		var bc = new BroadcastChannel('obs-lower-thirds-channel');
 		function function_send() {
@@ -169,7 +355,8 @@
 			if (document.getElementById("position-left").checked == true) {position = "left"};
 			if (document.getElementById("position-right").checked == true) {position = "right"};
 
-			bc.postMessage(name_to_send + '|' + function_to_send + '|' + position + '|' + 'animateIn'); /* send */
+			bc.postMessage(name_to_send + '|' + function_to_send + '|' + position + '|' + '|' + 'animateIn'); /* send */
+      console.log(name_to_send + '|' + function_to_send + '|' + position + '|' + '|' + 'animateIn');
 		};
 		function function_hide() {
 			bc.postMessage('|||animateOut'); /* send - only last parameter*/

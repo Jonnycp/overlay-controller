@@ -52,6 +52,7 @@ return lottie;
 
 <div id="lottie"></div>
 
+<script type="text/javascript" src="settings.js"></script>
 <script>
 
   var bc = new BroadcastChannel('obs-lower-thirds-channel');
@@ -59,25 +60,20 @@ return lottie;
     received_data=ev.data.split("|");
     var nome = received_data[0];
     var funzione = received_data[1];
-    position = received_data[2];
-    animation = received_data[3];
-    var colori = [
-        [32, 32, 32], //Nome - sfondo
-        [255, 133, 0], //Giallo - color1
-        [0, 179, 255], //Azzurro - color2
-        [42, 111, 141], //Ruolo - sfondo
-        [255, 255, 255], //Nome - colore testo
-        [255, 255, 255], //Ruolo - colore testo
-      ];
+    var position = received_data[2];
+    var colors = received_data[3];
+    var animation = received_data[4];
+
     var lottiecolors = [
-        [(colori[0][0]/255), (colori[0][1]/255), (colori[0][2]/255)], //Nome sfondo
-        [(colori[1][0]/255), (colori[1][1]/255), (colori[1][2]/255)], //Giallo
-        [(colori[2][0]/255), (colori[2][1]/255), (colori[2][2]/255)], //Azzurro
-        [(colori[3][0]/255), (colori[3][1]/255), (colori[3][2]/255)], //Ruolo sfondo
-        [(colori[4][0]/255), (colori[4][1]/255), (colori[4][2]/255)], //Nome
-        [(colori[5][0]/255), (colori[5][1]/255), (colori[5][2]/255)], //Ruolo
+        [(colori.sfondo1[0]/255), (colori.sfondo1[1]/255), (colori.sfondo1[2]/255)], //Nome sfondo
+        [(colori.color1[0]/255), (colori.color1[1]/255), (colori.color1[2]/255)], //Giallo
+        [(colori.color2[0]/255), (colori.color2[1]/255), (colori.color2[2]/255)], //Azzurro
+        [(colori.sfondo2[0]/255), (colori.sfondo2[1]/255), (colori.sfondo2[2]/255)], //Ruolo sfondo
+        [(colori.text1[0]/255), (colori.text1[1]/255), (colori.text1[2]/255)], //Nome
+        [(colori.text2[0]/255), (colori.text2[1]/255), (colori.text2[2]/255)], //Ruolo
     ];
-    console.log ('Name: ' + received_data[0] + ', Function: ' + received_data[1] + ', Position: ' + received_data[2] + ', Animation: ' + received_data[3]);
+    console.log ('Name: ' + received_data[0] + ', Function: ' + received_data[1] + ', Position: ' + received_data[2] + ', Animation: ' + received_data[4]);
+    console.log(colors);
     console.log (JSON.stringify(lottiecolors, null, 4));
 /*  if (animation == 'animateIn') {document.getElementById("lower-third").classList.remove("animateOut");document.getElementById("lower-third").classList.add("animateIn");};
   if (animation == 'animateOut') {document.getElementById("lower-third").classList.remove("animateIn");document.getElementById("lower-third").classList.add("animateOut");};
