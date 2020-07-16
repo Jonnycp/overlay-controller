@@ -1,7 +1,7 @@
 :root {
   --main-color: #fff;
   --element-radius: 1em;
-  --obs-background: #181819;
+  --obs-background: #1f1e1f;
   --obs-button-background: #162458;
   --obs-button-border: #233166;
   --obs-button-hover-background: #581624;
@@ -169,4 +169,39 @@ body.browser-source.clock{
 
 .marg{
   margin-right: 1.5%;
+}
+
+.grande{
+  text-transform: uppercase;
+}
+
+::-webkit-scrollbar{
+    width:0.5em;
+    height:0.5em;
+background: #1f1e1f;
+margin-right: 10px;
+}
+::-webkit-scrollbar:hover{
+    background-color:#1f1e1f;
+border: none;
+}
+::-webkit-resizer{
+    -webkit-border-radius:4px;
+    background-color:#ccc;
+border: none;
+}
+::-webkit-scrollbar-thumb{
+    min-height:0.8em;
+    min-width:0.8em;
+    -webkit-border-radius:4px;
+    background-color: #4c4c4c;
+border: none;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: #7a797a;
+border: none;
+}
+::-webkit-scrollbar-thumb:active{
+    background-color:#525252;
+border: none;
 }
