@@ -10,74 +10,62 @@
 	<script src="../common/js/jquery.js"></script>
 <script type="text/javascript" src="settings.js"></script>
   </head>
-  <body class="lower-thirds-panel panel">
+  <body style="background: var(--obs-background);">
+    <nav class="navbar navbar-light" style="margin:0px; background-color:rgb(70,69,70); border-color:black; border-top-style:solid; border-width:thin;">
+  <a class="navbar-brand" href="index.html">
+    <img src="../common/images/back.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+    <span style="margin-left:8%; color:white;"><b>Overlay controller</b> - Lower Third 1</span>
+  </a>
+</nav>
+    <div class="lower-thirds-panel panel">
 	<div class="static-panel-top">
 		<input id="lower-thirds-name" maxlength="22" placeholder="Nome e cognome">
 		<input id="lower-thirds-function" maxlength="60" placeholder="Ruolo">
-		<button class="onethird" id="sender" onclick="function_send()">Show</button>
-		<button class="onethird" id="sender" onclick="function_hide()">Hide</button>
+		<button class="onethird" id="sender" onclick="function_send()">Mostra</button>
+    <!--<div class="progress">
+      <div id="progress" class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+    </div><br>-->
 		  <div class="radio-position">
                 <input type="radio" name="radio-group-position" id="position-left" checked="checked" /><label for="position-left">Left</label>
                 <input type="radio" name="radio-group-position" id="position-right" /><label for="position-right">Right</label>
            </div>
 		   <div style="clear:both"></div>
-
-
 </div>
-	</div>
 	<div class="panel-bottom">
-
 <div>
   <br>
 		<h3>Preimpostazioni</h3>
     <br>
   <div id="accordion">
-    <div>
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-          OSPITI
-        </button>
-      </h5>
-      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion" style="">
-      <div class="card-body">
-        <ul id="predefined">
-          <div id=ospiti></div>
-    		</ul>
-      </div>
-    </div>
-  </div><br>
-  <div>
-  <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          RADIO PANETTI
-        </button>
-      </h5><div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion" style="">
-      <div class="card-body">
-        <ul id="predefined">
-    			<div id=rp></div>
           <script>
           let html = "";
-          persone.ospiti.forEach(function(element) {
-            let ospite = element;
-            html +=`
-            <li><div class="name">${ospite[0]}</div><div class="function">${ospite[1]}</div></li>
-            `
-          });
-          document.querySelector('#ospiti').innerHTML = html;
+            for (var key in persone) {
+                html += `
+                  <div><h5 class="mb-0">
+                    <button class="btn btn-link collapsed grande" data-toggle="collapse" data-target="#${key}" aria-expanded="false" aria-controls="${key}">${key}</button>
+                    </h5>
+                  <div id="${key}" class="collapse" aria-labelledby="${key}" data-parent="#accordion">
+                  <div class="card-body">
+                    <ul id="predefined">
+                      <div id="${key}j"></div>
+                    </ul>
+                  </div>
+               </div></div><br>
+`
+  document.querySelector('#accordion').innerHTML = html;
+}
+for (var kay in persone) {
+          let httml = "";
+            persone[kay].forEach(function(element) {
+            httml +=`
+            <li><div class="name">${element[0]}</div><div class="function">${element[1]}</div></li>
+`
+  document.querySelector(`#${kay}j`).innerHTML = httml;
+});
 
-          let htmlRP = "";
-          persone.radiopanetti.forEach(function(element) {
-            let rp = element;
-            htmlRP +=`
-            <li><div class="name">${rp[0]}</div><div class="function">${rp[1]}</div></li>
-            `
-          });
-          document.querySelector('#rp').innerHTML = htmlRP;
+}
+
           </script>
-    		</ul>
-      </div>
-    </div>
-  </div>
 </div>
 </div>
 <br>
@@ -355,16 +343,19 @@
 			if (document.getElementById("position-left").checked == true) {position = "left"};
 			if (document.getElementById("position-right").checked == true) {position = "right"};
 
-			bc.postMessage(name_to_send + '|' + function_to_send + '|' + position + '|' + '|' + 'animateIn'); /* send */
-      console.log(name_to_send + '|' + function_to_send + '|' + position + '|' + '|' + 'animateIn');
+			bc.postMessage(name_to_send + '|' + function_to_send + '|' + position); /* send */
+      console.log(name_to_send + '|' + function_to_send + '|' + position);
 		};
 		function function_hide() {
-			bc.postMessage('|||animateOut'); /* send - only last parameter*/
+			//bc.postMessage('|||animateOut'); /* send - only last parameter*/
 		}
 	</script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+</div>
+</div>
+</div>
+	</div>
   </body>
 </html>
