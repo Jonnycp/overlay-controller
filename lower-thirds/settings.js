@@ -8,9 +8,9 @@ var colori = {
 };
 
 var persone = {
-  ospiti  : [["Piergiuseppe Rossi", "Il corpo e la macchina"],
-             ["Simone Arcagni", "Nuovi scenari mediali nel rapporto uomo-macchina"],
-             ["Orsola Rignani", "Il corpo virtuale come possibilità"]],
+  ospiti  : [["Mussi Bollini", "Pc, tablet, Wi-Fi? No, solo tv! La funzione educativa di RAIRagazzi"],
+             ["Mario Acampa", "Conduttore La Banda dei Fuori Classe"]
+             ],
 
   radiopanetti : [["Jonathan Caputo", "Regista"],
                   ["Andrea Ottomanelli", "Regista"]]
