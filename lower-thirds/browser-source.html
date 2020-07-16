@@ -18,7 +18,12 @@
             text-align: center;
             opacity: 1;
         }
-
+        .right{
+          margin-left: 45%;
+        }
+        .hide{
+          display: none;
+        }
     </style>
 </head>
 <body style="background-color: rgba(0, 0, 0, 0);">
@@ -61,8 +66,6 @@ return lottie;
     var nome = received_data[0];
     var funzione = received_data[1];
     var position = received_data[2];
-    var colors = received_data[3];
-    var animation = received_data[4];
 
     var lottiecolors = [
         [(colori.sfondo1[0]/255), (colori.sfondo1[1]/255), (colori.sfondo1[2]/255)], //Nome sfondo
@@ -72,13 +75,12 @@ return lottie;
         [(colori.text1[0]/255), (colori.text1[1]/255), (colori.text1[2]/255)], //Nome
         [(colori.text2[0]/255), (colori.text2[1]/255), (colori.text2[2]/255)], //Ruolo
     ];
-    console.log ('Name: ' + received_data[0] + ', Function: ' + received_data[1] + ', Position: ' + received_data[2] + ', Animation: ' + received_data[4]);
-    console.log(colors);
+    console.log ('Name: ' + received_data[0] + ', Function: ' + received_data[1] + ', Position: ' + received_data[2]);
+    console.log("Lottie Colors");
     console.log (JSON.stringify(lottiecolors, null, 4));
-/*  if (animation == 'animateIn') {document.getElementById("lower-third").classList.remove("animateOut");document.getElementById("lower-third").classList.add("animateIn");};
-  if (animation == 'animateOut') {document.getElementById("lower-third").classList.remove("animateIn");document.getElementById("lower-third").classList.add("animateOut");};
-  if (position == 'left') {document.getElementById("lower-third").classList.remove("right");document.getElementById("lower-third").classList.add("left");};
-  if (position == 'right') {document.getElementById("lower-third").classList.remove("left");document.getElementById("lower-third").classList.add("right");};*/
+
+  if (position == 'left') {document.getElementById("lottie").classList.remove("right");};
+  if (position == 'right') {document.getElementById("lottie").classList.add("right");};
 
 
 
@@ -1863,6 +1865,8 @@ animationData: animationData
     anim = lottie.loadAnimation(params);
 
     anim.addEventListener('complete', function(){
+/*      var duration = (anim.frameRate*100)/anim.totalFrames;
+      console.log(duration);*/
     anim.destroy()
     })
   }
