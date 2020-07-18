@@ -12,5 +12,5 @@ Dalla pagina `setting.js` è possibile impostare:
 * colori dell'animazione
 * preimpostazioni (set di nome/funzione che vengono visualizzati nel pannello preimpostati)
 
-### Discamer
+### Disclamer
 *Il file `setting.js` è formato da una serie di array javascript, un errore di sintassi può creare problemi in tutto il programma.*
