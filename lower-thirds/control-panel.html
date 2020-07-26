@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta charset="utf-8">
@@ -20,10 +20,9 @@
 <div id=alert style="margin-top:1em;"></div>
     <div class="lower-thirds-panel panel">
 	<div class="static-panel-top">
+    <div id="input">
 
-		<input id="lower-thirds-name" maxlength="22" placeholder="Nome e cognome">
-		<input id="lower-thirds-function" maxlength="60" placeholder="Ruolo">
-
+</div>
     <div class="d-flex justify-content-center">
 		<button class="onethird" id="sender" onclick="function_send()">Mostra</button>
       <select class="form-control" id="animazione" style="width:40%; margin-right:2%;" onchange="animazione()">
@@ -66,7 +65,7 @@ for (var kay in persone) {
           let httml = "";
             persone[kay].forEach(function(element) {
             httml +=`
-            <li><div class="name">${element[0]}</div><div class="function">${element[1]}</div></li>
+            <li><div class="name">${element[0]}</div><div class="function">${element[1]}</div><div class="animation">${element[2]}</div></li>
 `
   document.querySelector(`#${kay}j`).innerHTML = httml;
 });
@@ -80,299 +79,213 @@ for (var kay in persone) {
 <div>
   <h3>Colori</h3>
   <br>
-    <div class="d-flex justify-content-center">
-      <button id="sfondo1q" class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#sfondo1" aria-expanded="false" aria-controls="sfondo1" style="background-color: rgb(32, 32, 32);"></button>
-      <button id="color1q" class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#color1" aria-expanded="false" aria-controls="color1" style="background-color: rgb(255, 133, 0);"></button>
-      <button id="color2q" class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#color2" aria-expanded="false" aria-controls="color2" style="background-color: rgb(0, 179, 255);"></button>
-      <button id="sfondo2q" class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#sfondo2" aria-expanded="false" aria-controls="sfondo2" style="background-color: rgb(42, 111, 141);"></button>
-      <button id="testo1q" class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#testo1" aria-expanded="false" aria-controls="testo1" style="background-color: rgb(255, 255, 255);"></button>
-      <button id="testo2q" class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#testo2" aria-expanded="false" aria-controls="testo2" style="background-color: rgb(255, 255, 255);"></button>
-    </div>
-    <div id="colori">
-      <div id="sfondo1" class="collapse show" aria-labelledby="sfondo1" data-parent="#colori">
-        <br>
-        <h6>SFONDO - NOME</h6>
-        <form class="d-flex justify-content-center">
-            <div class="form-row align-items-center">
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">R</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="reds1" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">G</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="greens1" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">B</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="blues1" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col-auto my-1">
-                <a href="settings.js" target="_blank" class="btn btn-info">Apri Opzioni</a>
-              </div>
-            </div>
-        </form>
-      </div>
-      <div id="sfondo2" class="collapse" aria-labelledby="sfondo2" data-parent="#colori">
-        <br>
-        <h6>SFONDO - RUOLO</h6>
-        <form class="d-flex justify-content-center">
-            <div class="form-row align-items-center">
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">R</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="reds2" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">G</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="greens2" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">B</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="blues2" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col-auto my-1">
-                <a href="settings.js" target="_blank" class="btn btn-info">Apri Opzioni</a>
-              </div>
-            </div>
-        </form>
-      </div>
-      <div id="color1" class="collapse" aria-labelledby="color1" data-parent="#colori">
-        <br>
-        <h6>COLORE PRINCIPALE</h6>
-        <form class="d-flex justify-content-center">
-            <div class="form-row align-items-center">
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">R</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="redc1" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">G</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="greenc1" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">B</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="bluec1" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col-auto my-1">
-                <a href="settings.js" target="_blank" class="btn btn-info">Apri Opzioni</a>
-              </div>
-            </div>
-        </form>
-      </div>
-      <div id="color2" class="collapse" aria-labelledby="sfondo1" data-parent="#colori">
-        <br>
-        <h6>COLORE SECONDARIO</h6>
-        <form class="d-flex justify-content-center">
-            <div class="form-row align-items-center">
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">R</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="redc2" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">G</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="greenc2" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">B</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="bluec2" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col-auto my-1">
-                <a href="settings.js" target="_blank" class="btn btn-info">Apri Opzioni</a>
-              </div>
-            </div>
-        </form>
-      </div>
-      <div id="testo1" class="collapse" aria-labelledby="testo1" data-parent="#colori">
-        <br>
-        <h6>COLORE TESTO NOME</h6>
-        <form class="d-flex justify-content-center">
-            <div class="form-row align-items-center">
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">R</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="redt1" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">G</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="greent1" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">B</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="bluet1" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col-auto my-1">
-                <a href="settings.js" target="_blank" class="btn btn-info">Apri Opzioni</a>
-              </div>
-            </div>
-        </form>
-      </div>
-      <div id="testo2" class="collapse" aria-labelledby="testo2" data-parent="#colori">
-        <br>
-        <h6>COLORE TESTO RUOLO</h6>
-        <form class="d-flex justify-content-center">
-            <div class="form-row align-items-center">
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">R</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="redt2" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">G</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="greent2" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">B</div>
-                  </div>
-                  <input type="number" class="form-control" disabled id="bluet2" maxlength="3" max="255" min="0">
-                </div>
-              </div>
-              <div class="col-auto my-1">
-                <a href="settings.js" target="_blank" class="btn btn-info">Apri Opzioni</a>
-              </div>
-            </div>
-        </form>
-      </div>
-    </div>
+    <div class="d-flex justify-content-center" id="btn_colors"></div>
+    <div id="colori"></div>
 	<div>
 
 	<script>
 		$("ul#predefined li").click(function(){
-		cur_name=$(this).children('.name').text();
-		cur_function=$(this).children('.function').text();
-			$("#lower-thirds-name:text").val(cur_name);
-			$("#lower-thirds-function:text").val(cur_function);
+      cur_name=$(this).children('.name').text();
+  		cur_function=$(this).children('.function').text();
+      cur_animazione=$(this).children('.animation').text();
+      $("#animazione").val(cur_animazione);
+      switch (cur_animazione) {
+        case "lower1":
+          var lower1 = `<input id="lower-third1-name" maxlength="22" placeholder="Nome e cognome">
+      		              <input id="lower-third1-function" maxlength="60" placeholder="Ruolo">`;
+        document.getElementById('input').innerHTML = lower1;
+        $("#lower-third1-name:text").val(cur_name);
+        $("#lower-third1-function:text").val(cur_function);
+          break;
+
+        case "social1":
+          var social1 = `<div><div class="d-flex justify-content-center">
+		                      <input id="social1-tit1" maxlength="30" placeholder="Titolo 1" style="margin-right: 3%;">
+		                      <input id="social1-tit2" maxlength="30" placeholder="Titolo 2">
+                          </div>
+                          <div class="d-flex justify-content-center">
+                          <input id="social1-des1" maxlength="30" placeholder="1 descrizione" style="margin-right: 3%;">
+                          <input id="social1-des2" maxlength="30" placeholder="2 descrizione" style="margin-right: 3%;">
+		                      <input id="social1-des3" maxlength="30" placeholder="3 descrizione" style="margin-right: 3%;">
+                          <input id="social1-des4" maxlength="30" placeholder="4 descrizione" style="margin-right: 3%;">
+                          <input id="social1-des5" maxlength="30" placeholder="5 descrizione">`;
+        document.getElementById('input').innerHTML = social1;
+        cur_names=cur_name.split("|");
+        cur_functions=cur_function.split("|");
+        $("#social1-tit1:text").val(cur_names[0]);
+        $("#social1-tit2:text").val(cur_names[1]);
+        $("#social1-des1:text").val(cur_functions[0]);
+        $("#social1-des2:text").val(cur_functions[1]);
+        $("#social1-des3:text").val(cur_functions[2]);
+        $("#social1-des4:text").val(cur_functions[3]);
+        $("#social1-des5:text").val(cur_functions[4]);
+        break;
+
+
+        default:
+        console.error("Se vedi questo errore, molto probabilmente hai modificato il valore di una delle opzioni nella scelta dell'animazione desiderata.");
+        var alert_what = `<div class="alert alert-danger alert-dismissible fade show" role="alert" style="background-color: #f12c2c; border-style: none; border-radius: 0px;"><strong>COSA?</strong> Come hai fatto a far comparire questo banner?<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>`;
+        document.getElementById("alert").innerHTML = alert_what;
+      };
+
+
 		});
 
     document.body.onload = function(){
-      //SFONDO 1
-      document.getElementById('reds1').setAttribute("value", colori.sfondo1[0]);
-      document.getElementById('greens1').setAttribute("value", colori.sfondo1[1]);
-      document.getElementById('blues1').setAttribute("value", colori.sfondo1[2]);
-      document.getElementById('sfondo1q').setAttribute("style", "background-color: rgb(" + colori.sfondo1[0] + "," + colori.sfondo1[1] + "," + colori.sfondo1[2] + ");");
-      //SFONDO 2
-      document.getElementById('reds2').setAttribute("value", colori.sfondo2[0]);
-      document.getElementById('greens2').setAttribute("value", colori.sfondo2[1]);
-      document.getElementById('blues2').setAttribute("value", colori.sfondo2[2]);
-      document.getElementById('sfondo2q').setAttribute("style", "background-color: rgb(" + colori.sfondo2[0] + "," + colori.sfondo2[1] + "," + colori.sfondo2[2] + ");");
-      //COLOR 1
-      document.getElementById('redc1').setAttribute("value", colori.color1[0]);
-      document.getElementById('greenc1').setAttribute("value", colori.color1[1]);
-      document.getElementById('bluec1').setAttribute("value", colori.color1[2]);
-      document.getElementById('color1q').setAttribute("style", "background-color: rgb(" + colori.color1[0] + "," + colori.color1[1] + "," + colori.color1[2] + ");");
-      //COLOR 2
-      document.getElementById('redc2').setAttribute("value", colori.color2[0]);
-      document.getElementById('greenc2').setAttribute("value", colori.color2[1]);
-      document.getElementById('bluec2').setAttribute("value", colori.color2[2]);
-      document.getElementById('color2q').setAttribute("style", "background-color: rgb(" + colori.color2[0] + "," + colori.color2[1] + "," + colori.color2[2] + ");");
-      //TEXT 1
-      document.getElementById('redt1').setAttribute("value", colori.text1[0]);
-      document.getElementById('greent1').setAttribute("value", colori.text1[1]);
-      document.getElementById('bluet1').setAttribute("value", colori.text1[2]);
-      document.getElementById('testo1q').setAttribute("style", "background-color: rgb(" + colori.text1[0] + "," + colori.text1[1] + "," + colori.text1[2] + ");");
-      //TEXT 2
-      document.getElementById('redt2').setAttribute("value", colori.text2[0]);
-      document.getElementById('greent2').setAttribute("value", colori.text2[1]);
-      document.getElementById('bluet2').setAttribute("value", colori.text2[2]);
-      document.getElementById('testo2q').setAttribute("style", "background-color: rgb(" + colori.text2[0] + "," + colori.text2[1] + "," + colori.text2[2] + ");");
+      //Gestione colori
+      let btn_colors = "";
+      let input_colors = "";
+          for (var kiave in colori["lower1"]) {
+              btn_colors += `<button id="${kiave}q" class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#${kiave}" aria-expanded="false" aria-controls="${kiave}"></button>`;
+              input_colors += `<div id="${kiave}" class="collapse" aria-labelledby="${kiave}" data-parent="#colori"><br>
+                <h6 style="text-transform: uppercase;">${kiave}</h6>
+                <form class="d-flex justify-content-center"><div class="form-row align-items-center"><div class="col">
+                        <div class="input-group"><div class="input-group-prepend">
+                        <div class="input-group-text">R</div></div>
+                          <input type="number" class="form-control" disabled id="red${kiave}" maxlength="3" max="255" min="0">
+                          </div></div><div class="col"><div class="input-group"><div class="input-group-prepend">
+                          <div class="input-group-text">G</div></div>
+                          <input type="number" class="form-control" disabled id="green${kiave}" maxlength="3" max="255" min="0">
+                        </div></div><div class="col"><div class="input-group"><div class="input-group-prepend">
+                            <div class="input-group-text">B</div></div>
+                          <input type="number" class="form-control" disabled id="blue${kiave}" maxlength="3" max="255" min="0">
+                        </div></div><div class="col-auto my-1">
+                        <a href="settings.js" target="_blank" class="btn btn-info">Apri Opzioni</a></div></div>
+                </form></div>`;
+          };
+          document.querySelector('#btn_colors').innerHTML = btn_colors;
+          document.querySelector('#colori').innerHTML = input_colors;
 
-      document.getElementById('titolo').innerHTML = document.getElementById('animazione').value;;
+          for (var chiave in colori["lower1"]) {
+              colori["lower1"][chiave].forEach(function(tipo) {
+                document.getElementById(`red${chiave}`).setAttribute("value", colori["lower1"][chiave][0]);
+                document.getElementById(`green${chiave}`).setAttribute("value", colori["lower1"][chiave][1]);
+                document.getElementById(`blue${chiave}`).setAttribute("value", colori["lower1"][chiave][2]);
+                document.getElementById(`${chiave}q`).setAttribute("style", "background-color: rgb(" + colori["lower1"][chiave][0] + "," + colori["lower1"][chiave][1] + "," + colori["lower1"][chiave][2] + ");");
+              })};
+
+      document.getElementById('titolo').innerHTML = document.getElementById('animazione').value;
+      var lower1 = `<input id="lower-third1-name" maxlength="22" placeholder="Nome e cognome">
+                    <input id="lower-third1-function" maxlength="60" placeholder="Ruolo">`;
+    document.getElementById('input').innerHTML = lower1;
     };
 
 		var bc = new BroadcastChannel('obs-lower-thirds-channel');
+
     function animazione() {
       var animazione = document.getElementById('animazione').value;
       document.getElementById('titolo').innerHTML = animazione;
+
+      //COLORI
+      let btn_colors = "";
+      let input_colors = "";
+          for (var kiave in colori[animazione]) {
+              btn_colors += `<button id="${kiave}q" class="marg btn btn-link collapsed" data-toggle="collapse" data-target="#${kiave}" aria-expanded="false" aria-controls="${kiave}"></button>`;
+              input_colors += `<div id="${kiave}" class="collapse" aria-labelledby="${kiave}" data-parent="#colori"><br>
+                <h6 style="text-transform: uppercase;">${kiave}</h6>
+                <form class="d-flex justify-content-center"><div class="form-row align-items-center"><div class="col">
+                        <div class="input-group"><div class="input-group-prepend">
+                        <div class="input-group-text">R</div></div>
+                          <input type="number" class="form-control" disabled id="red${kiave}" maxlength="3" max="255" min="0">
+                          </div></div><div class="col"><div class="input-group"><div class="input-group-prepend">
+                          <div class="input-group-text">G</div></div>
+                          <input type="number" class="form-control" disabled id="green${kiave}" maxlength="3" max="255" min="0">
+                        </div></div><div class="col"><div class="input-group"><div class="input-group-prepend">
+                            <div class="input-group-text">B</div></div>
+                          <input type="number" class="form-control" disabled id="blue${kiave}" maxlength="3" max="255" min="0">
+                        </div></div><div class="col-auto my-1">
+                        <a href="settings.js" target="_blank" class="btn btn-info">Apri Opzioni</a></div></div>
+                </form></div>`;
+          };
+          document.querySelector('#btn_colors').innerHTML = btn_colors;
+          document.querySelector('#colori').innerHTML = input_colors;
+
+          for (var chiave in colori[animazione]) {
+              colori[animazione][chiave].forEach(function(tipo) {
+                document.getElementById(`red${chiave}`).setAttribute("value", colori[animazione][chiave][0]);
+                document.getElementById(`green${chiave}`).setAttribute("value", colori[animazione][chiave][1]);
+                document.getElementById(`blue${chiave}`).setAttribute("value", colori[animazione][chiave][2]);
+                document.getElementById(`${chiave}q`).setAttribute("style", "background-color: rgb(" + colori[animazione][chiave][0] + "," + colori[animazione][chiave][1] + "," + colori[animazione][chiave][2] + ");");
+              })};
+
+
+      switch (animazione) {
+        case "lower1":
+          var lower1 = `<input id="lower-third1-name" maxlength="22" placeholder="Nome e cognome">
+      		              <input id="lower-third1-function" maxlength="60" placeholder="Ruolo">`;
+        document.getElementById('input').innerHTML = lower1;
+          break;
+
+        case "social1":
+          var social1 = `<div><div class="d-flex justify-content-center">
+		                      <input id="social1-tit1" maxlength="30" placeholder="Titolo 1" style="margin-right: 3%;">
+		                      <input id="social1-tit2" maxlength="30" placeholder="Titolo 2">
+                          </div>
+                          <div class="d-flex justify-content-center">
+                          <input id="social1-des1" maxlength="30" placeholder="1 descrizione" style="margin-right: 3%;">
+                          <input id="social1-des2" maxlength="30" placeholder="2 descrizione" style="margin-right: 3%;">
+		                      <input id="social1-des3" maxlength="30" placeholder="3 descrizione" style="margin-right: 3%;">
+                          <input id="social1-des4" maxlength="30" placeholder="4 descrizione" style="margin-right: 3%;">
+                          <input id="social1-des5" maxlength="30" placeholder="5 descrizione">`;
+        document.getElementById('input').innerHTML = social1;
+        break;
+
+
+        default:
+        console.error("Se vedi questo errore, molto probabilmente hai modificato il valore di una delle opzioni nella scelta dell'animazione desiderata.");
+        var alert_what = `<div class="alert alert-danger alert-dismissible fade show" role="alert" style="background-color: #f12c2c; border-style: none; border-radius: 0px;"><strong>COSA?</strong> Come hai fatto a far comparire questo banner?<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>`;
+        document.getElementById("alert").innerHTML = alert_what;
+      };
       };
 
 		function function_send() {
-			name_to_send = $("#lower-thirds-name:text").val();
-			function_to_send = $("#lower-thirds-function:text").val();
       animazione = document.getElementById('animazione').value;
+      var alert_empty = `<div class="alert alert-danger alert-dismissible fade show" role="alert" style="background-color: #f12c2c; border-style: none; border-radius: 0px;"><strong>ATTENZIONE!</strong> I campi indicati non posso essere vuoti durante l'animazione!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>`;
 
-			if (document.getElementById("position-left").checked == true) {position = "left"};
-			if (document.getElementById("position-right").checked == true) {position = "right"};
+      switch (animazione) {
+        case "lower1":
+        name_to_send = $("#lower-third1-name:text").val();
+        function_to_send = $("#lower-third1-function:text").val();
 
-      if(name_to_send != "" && function_to_send != ""){
-			bc.postMessage(animazione + '|' + name_to_send + '|' + function_to_send + '|' + position); /* send */
-      console.log(animazione + '|' + name_to_send + '|' + function_to_send + '|' + position);
-		}else{
-      console.error("Nome e ruolo non possono essere vuoti durante l'animazione!");
-      let alert = "";
-      alert += `<div class="alert alert-danger alert-dismissible fade show" role="alert" style="background-color: #f12c2c; border-style: none; border-radius: 0px;">
-              <strong>ATTENZIONE!</strong> I campi nome e ruolo non posso essere vuoti durante l'animazione!
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-                </div>`;
-      document.getElementById("alert").innerHTML = alert;
-      }};
+        if (document.getElementById("position-left").checked == true) {position = "left"};
+        if (document.getElementById("position-right").checked == true) {position = "right"};
+
+        if(name_to_send != "" && function_to_send != ""){
+        bc.postMessage(animazione + '|' + name_to_send + '|' + function_to_send + '|' + position); /* send */
+        console.log(animazione + '|' + name_to_send + '|' + function_to_send + '|' + position);
+        }else{
+          console.error("Nome e ruolo non possono essere vuoti durante l'animazione!");
+          document.getElementById("alert").innerHTML = alert_empty;
+        }
+          break;
+
+        case "social1":
+        social1_tit1 = $("#social1-tit1:text").val();
+        social1_tit2 = $("#social1-tit2:text").val();
+        social1_des1 = $("#social1-des1:text").val();
+        social1_des2 = $("#social1-des2:text").val();
+        social1_des3 = $("#social1-des3:text").val();
+        social1_des4 = $("#social1-des4:text").val();
+        social1_des5 = $("#social1-des5:text").val();
+
+        if (document.getElementById("position-left").checked == true) {position = "left"};
+        if (document.getElementById("position-right").checked == true) {position = "right"};
+
+        if(social1_tit1 != "" && social1_tit1 != "" && social1_des1 != "" && social1_des2 != "" && social1_des3 != "" && social1_des4 != "" && social1_des5 != ""){
+        bc.postMessage(animazione + '|' + social1_tit1 + '|' + social1_tit2 + '|' + social1_des1 + '|' + social1_des2 + '|' + social1_des3 + '|' + social1_des4 + '|' + social1_des5 + '|' + position); /* send */
+        console.log(animazione + '|' + social1_tit1 + '|' + social1_tit2 + '|' + social1_des1 + '|' + social1_des2 + '|' + social1_des3 + '|' + social1_des4 + '|' + social1_des5 + '|' + position);
+        }else{
+          console.error("I campi inidicati non possono essere vuoti non possono essere vuoti durante l'animazione!");
+          document.getElementById("alert").innerHTML = alert_empty;
+        }
+          break;
+
+        default:
+        console.error("Se vedi questo errore, molto probabilmente hai modificato il valore di una delle opzioni nella scelta dell'animazione desiderata.");
+        var alert = `<div class="alert alert-danger alert-dismissible fade show" role="alert" style="background-color: #f12c2c; border-style: none; border-radius: 0px;"><strong>COSA?</strong> Come hai fatto a far comparire questo banner?<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>`;
+        document.getElementById("alert").innerHTML = alert_what;
+      }
+			};
 
 		function function_hide() {
 			//bc.postMessage('|||animateOut'); /* send - only last parameter*/
