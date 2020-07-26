@@ -3,7 +3,7 @@ OBS non ha un controller per le grafiche in sovraimpressione, ecco risolto il pr
 
 ## Come usarlo
 * Aggiungete la pagina `lower-thirds\control-panel.html` a obs attraverso
-Visualizza >> Pannelli Personalizzati >> Aggiungi pannello
+Visualizza >> Pannelli >> Pannelli Browser Personalizzati
 
 * Aggiungete la pagina `lower-thirds\browser-source.html` come fonte browser per visualizzare le animazioni inviate.
 
