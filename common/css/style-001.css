@@ -41,7 +41,7 @@ body.browser-source.clock{
 	margin:1em;
 	}
 
-.panel input#lower-thirds-name, .panel input#lower-thirds-function {
+.panel input {
 	box-sizing: border-box;
 	padding:.75em;
 	margin:0 0 1em;
@@ -92,6 +92,10 @@ body.browser-source.clock{
     display: inline-block;
 }
 
+.panel ul#predefined li .name, ul#predefined li .animation {
+    display: inline-block;
+}
+
 .panel ul#predefined li {
     padding: .5em 1em;
     border: 1px solid #555;
@@ -103,6 +107,7 @@ body.browser-source.clock{
 .panel ul#predefined li .function:before{ content: "\00a0(";}
 .panel ul#predefined li .function:after{ content: ")";}
 
+.panel ul#predefined li .animation:before{ content: "\00a0-\00a0";}
 
 		body.browser-source.lower-thirds{
 		margin:0 2em;
