@@ -31,5 +31,5 @@ Sono disponibili le sequenti animazioni:
  
   
 ## Disclamer
-*Il file `settings.js` è formato da una serie di array javascript, un errore di sintassi può creare problemi in tutto il programma.*
-*Non funziona su Safari e Safari on IOS poichè `Broadcast channel` e `onmessage` di javascript non sono supportati come indicato [qui](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API#Browser_compatibility).*
+* *Il file `settings.js` è formato da una serie di array javascript, un errore di sintassi può creare problemi in tutto il programma.*
+* *Non funziona su Safari e Safari on IOS poichè `Broadcast channel` e `onmessage` di javascript non sono supportati come indicato [qui](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API#Browser_compatibility).*
