@@ -2,19 +2,23 @@ var bc = new BroadcastChannel('obs-lower-thirds-channel');
 bc.onmessage = function (ev) {
   received_data=ev.data.split("|");
   var animazione = received_data[0];
-  var nome = received_data[1];
-  var funzione = received_data[2];
-  var position = received_data[3];
+  var social1_tit1 = received_data[1];
+  var social1_tit2 = received_data[2];
+  var social1_des1 = received_data[3];
+  var social1_des2 = received_data[4];
+  var social1_des3 = received_data[5];
+  var social1_des4 = received_data[6];
+  var social1_des5 = received_data[7];
+  var position = received_data[8];
+
 if (animazione == "social1"){
   var lottiecolors = [
-      [(colori.sfondo1[0]/255), (colori.sfondo1[1]/255), (colori.sfondo1[2]/255)], //Nome sfondo
-      [(colori.color1[0]/255), (colori.color1[1]/255), (colori.color1[2]/255)], //Giallo
-      [(colori.color2[0]/255), (colori.color2[1]/255), (colori.color2[2]/255)], //Azzurro
-      [(colori.sfondo2[0]/255), (colori.sfondo2[1]/255), (colori.sfondo2[2]/255)], //Ruolo sfondo
-      [(colori.text1[0]/255), (colori.text1[1]/255), (colori.text1[2]/255)], //Nome
-      [(colori.text2[0]/255), (colori.text2[1]/255), (colori.text2[2]/255)], //Ruolo
+      [(colori.social1.sfondo1[0]/255), (colori.social1.sfondo1[1]/255), (colori.social1.sfondo1[2]/255)], //Titolo sfondo
+      [(colori.social1.sfondo2[0]/255), (colori.social1.sfondo2[1]/255), (colori.social1.sfondo2[2]/255)], //Descrizioni sfondo
+      [(colori.social1.texts[0]/255), (colori.social1.texts[1]/255), (colori.social1.texts[2]/255)], //Testi e icone
   ];
-  console.log ('Name: ' + received_data[1] + ', Function: ' + received_data[2] + ', Position: ' + received_data[3]);
+  console.log ('Titoli: ' + received_data[1] + ', ' + received_data[2]);
+  console.log ('Descrizioni: ' + received_data[3] + ', ' + received_data[4] + ', ' + received_data[5] + ', ' + received_data[6] + ', ' + received_data[7]);
   console.log("Lottie Colors");
   console.log (JSON.stringify(lottiecolors, null, 4));
 
@@ -94,7 +98,7 @@ var animationData = {
                     "ix": 1,
                     "v": {
                         "a": 0,
-                        "k": [1, 1, 1, 1],
+                        "k": [lottiecolors[2][0], lottiecolors[2][1], lottiecolors[2][2], 1], //TESTI e icone
                         "ix": 1
                     }
                 }]
@@ -112,7 +116,7 @@ var animationData = {
                     "ix": 1,
                     "v": {
                         "a": 0,
-                        "k": [0.126872435212, 0.90151655674, 0.762749969959, 1],
+                        "k": [lottiecolors[0][0], lottiecolors[0][1], lottiecolors[0][2], 1], //Sfondo titolo
                         "ix": 1
                     }
                 }]
@@ -130,7 +134,7 @@ var animationData = {
                     "ix": 1,
                     "v": {
                         "a": 0,
-                        "k": [0.140790775418, 0.643723368645, 0.874234080315, 1],
+                        "k": [lottiecolors[1][0], lottiecolors[1][1], lottiecolors[1][2], 1], //sfondo descrizioni
                         "ix": 1
                     }
                 }]
@@ -2627,7 +2631,7 @@ var animationData = {
                         "s": {
                             "s": 42,
                             "f": "Montserrat-SemiBold",
-                            "t": "Seguici!",
+                            "t": social1_tit1,//Seguici!
                             "j": 0,
                             "tr": -60,
                             "lh": 50.4,
@@ -2639,7 +2643,7 @@ var animationData = {
                         "s": {
                             "s": 42,
                             "f": "Montserrat-SemiBold",
-                            "t": "Riguarda le puntate",
+                            "t": social1_tit2,//Riguarda le puntate
                             "j": 0,
                             "tr": -60,
                             "lh": 50.4,
@@ -2906,7 +2910,7 @@ var animationData = {
                         "s": {
                             "s": 42,
                             "f": "Montserrat-SemiBold",
-                            "t": "RadioPanetti",
+                            "t": social1_des1,//RadioPanetti
                             "j": 0,
                             "tr": -60,
                             "lh": 50.4,
@@ -2918,7 +2922,7 @@ var animationData = {
                         "s": {
                             "s": 42,
                             "f": "Montserrat-SemiBold",
-                            "t": "Radio Panetti",
+                            "t": social1_des2,//Radio Panetti
                             "j": 0,
                             "tr": -60,
                             "lh": 50.4,
@@ -2930,7 +2934,7 @@ var animationData = {
                         "s": {
                             "s": 42,
                             "f": "Montserrat-SemiBold",
-                            "t": "@RadioPanettiOfficial",
+                            "t": social1_des3,//@RadioPanettiOfficial
                             "j": 0,
                             "tr": -60,
                             "lh": 50.4,
@@ -2942,7 +2946,7 @@ var animationData = {
                         "s": {
                             "s": 42,
                             "f": "Montserrat-SemiBold",
-                            "t": "radiopanetti.it",
+                            "t": social1_des4,//radiopanetti.it
                             "j": 0,
                             "tr": -60,
                             "lh": 50.4,
@@ -2954,7 +2958,7 @@ var animationData = {
                         "s": {
                             "s": 42,
                             "f": "Montserrat-SemiBold",
-                            "t": "play.radiopanetti.it",
+                            "t": social1_des5,//play.radiopanetti.it
                             "j": 0,
                             "tr": -60,
                             "lh": 50.4,
