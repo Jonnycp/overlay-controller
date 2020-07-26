@@ -7,12 +7,12 @@
     var position = received_data[3];
 if (animazione == "lower1"){
     var lottiecolors = [
-        [(colori.sfondo1[0]/255), (colori.sfondo1[1]/255), (colori.sfondo1[2]/255)], //Nome sfondo
-        [(colori.color1[0]/255), (colori.color1[1]/255), (colori.color1[2]/255)], //Giallo
-        [(colori.color2[0]/255), (colori.color2[1]/255), (colori.color2[2]/255)], //Azzurro
-        [(colori.sfondo2[0]/255), (colori.sfondo2[1]/255), (colori.sfondo2[2]/255)], //Ruolo sfondo
-        [(colori.text1[0]/255), (colori.text1[1]/255), (colori.text1[2]/255)], //Nome
-        [(colori.text2[0]/255), (colori.text2[1]/255), (colori.text2[2]/255)], //Ruolo
+        [(colori.lower1.sfondo1[0]/255), (colori.lower1.sfondo1[1]/255), (colori.lower1.sfondo1[2]/255)], //Nome sfondo
+        [(colori.lower1.color1[0]/255), (colori.lower1.color1[1]/255), (colori.lower1.color1[2]/255)], //Giallo
+        [(colori.lower1.color2[0]/255), (colori.lower1.color2[1]/255), (colori.lower1.color2[2]/255)], //Azzurro
+        [(colori.lower1.sfondo2[0]/255), (colori.lower1.sfondo2[1]/255), (colori.lower1.sfondo2[2]/255)], //Ruolo sfondo
+        [(colori.lower1.text1[0]/255), (colori.lower1.text1[1]/255), (colori.lower1.text1[2]/255)], //Nome
+        [(colori.lower1.text2[0]/255), (colori.lower1.text2[1]/255), (colori.lower1.text2[2]/255)], //Ruolo
     ];
     console.log ('Name: ' + received_data[1] + ', Function: ' + received_data[2] + ', Position: ' + received_data[3]);
     console.log("Lottie Colors");
