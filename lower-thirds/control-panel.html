@@ -27,6 +27,7 @@
 		<button class="onethird" id="sender" onclick="function_send()">Mostra</button>
       <select class="form-control" id="animazione" style="width:40%; margin-right:2%;" onchange="animazione()">
         <option value="lower1">Lower 1</option>
+        <option value="lower2">Lower 2</option>
         <option value="social1">Social 1</option>
       </select>
     <!--<div class="progress">
@@ -97,6 +98,14 @@ for (var kay in persone) {
         $("#lower-third1-name:text").val(cur_name);
         $("#lower-third1-function:text").val(cur_function);
           break;
+
+          case "lower2":
+            var lower2 = `<input id="lower-third2-name" maxlength="40" placeholder="Nome e cognome">
+        		              <input id="lower-third2-function" maxlength="50" placeholder="Ruolo">`;
+          document.getElementById('input').innerHTML = lower2;
+          $("#lower-third2-name:text").val(cur_name);
+          $("#lower-third2-function:text").val(cur_function);
+            break;
 
         case "social1":
           var social1 = `<div><div class="d-flex justify-content-center">
@@ -216,6 +225,12 @@ for (var kay in persone) {
         document.getElementById('input').innerHTML = lower1;
           break;
 
+          case "lower2":
+            var lower2 = `<input id="lower-third2-name" maxlength="40" placeholder="Nome e cognome">
+        		              <input id="lower-third2-function" maxlength="50" placeholder="Ruolo">`;
+          document.getElementById('input').innerHTML = lower2;
+            break;
+
         case "social1":
           var social1 = `<div><div class="d-flex justify-content-center">
 		                      <input id="social1-tit1" maxlength="30" placeholder="Titolo 1" style="margin-right: 3%;">
@@ -258,6 +273,22 @@ for (var kay in persone) {
           document.getElementById("alert").innerHTML = alert_empty;
         }
           break;
+
+          case "lower2":
+          name_to_send = $("#lower-third2-name:text").val();
+          function_to_send = $("#lower-third2-function:text").val();
+
+          if (document.getElementById("position-left").checked == true) {position = "left"};
+          if (document.getElementById("position-right").checked == true) {position = "right"};
+
+          if(name_to_send != "" && function_to_send != ""){
+          bc.postMessage(animazione + '|' + name_to_send + '|' + function_to_send + '|' + position); /* send */
+          console.log(animazione + '|' + name_to_send + '|' + function_to_send + '|' + position);
+          }else{
+            console.error("Nome e ruolo non possono essere vuoti durante l'animazione!");
+            document.getElementById("alert").innerHTML = alert_empty;
+          }
+            break;
 
         case "social1":
         social1_tit1 = $("#social1-tit1:text").val();
