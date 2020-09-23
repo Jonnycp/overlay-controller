@@ -27,9 +27,11 @@ var persone = {
   ospiti  : [
              ["ING. ELEONORA MATTEO", "DIRIGENTE SCOLASTICO", "lower2"],
              ["Mussi Bollini", "Pc, tablet, Wi-Fi? No, solo tv! La funzione educativa di RAIRagazzi", "lower1"],
-             ["Mario Acampa|Titolo2", "a|b|c|d|e", "social1"]
              ],
 
-  radiopanetti : [["Jonathan Caputo", "Regista", "lower1"],
-                  ["Andrea Ottomanelli", "Regista", "lower1"]]
+  radiopanetti : [
+                  ["Jonathan Caputo", "Regista", "lower1"],
+                  ["Andrea Ottomanelli", "Regista", "lower1"],
+                  ["Seguici!|Riguarda le puntate", "RadioPanetti|Radio Panetti|@RadioPanettiOfficial|radiopanetti.it|play.radiopanetti.it", "social1"]
+                ]
 };
