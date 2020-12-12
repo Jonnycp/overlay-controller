@@ -31,12 +31,15 @@ lower3 : {
 //PREIMPOSTAZIONI
 var persone = {
   ospiti  : [
-             ["Ing. Eleonora Matteo", "Dirigente Scolastico ITT Panetti-Pitagora", "lower1"],
              ["Dott.ssa Moriscoro Maria", "Dirigente Scolastico Licei Cartesio", "lower1"],
              ["Prof. Augusto Ponzio", "Professore emerito di filosofia e di semiotica", "lower1"],
-             ["Paola Romano", "Assessora alle Politiche educative, giovanili del Comune di Bari", "lower1"],
              ["Don Gianni de Robertis", "Direttore della Fondazione Migrantes", "lower1"],
              ["Mussi Bollini", "Pc, tablet, Wi-Fi? No, solo tv! La funzione educativa di RAIRagazzi", "lower1"],
+             ],
+
+  frequenti  : [
+             ["Ing. Eleonora Matteo", "Dirigente Scolastico ITT Panetti-Pitagora", "lower1"],
+             ["Paola Romano", "Assessora alle Politiche educative, giovanili del Comune di Bari", "lower1"],
              ],
 
   radiopanetti : [
