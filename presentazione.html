@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Presentazione Overlay Controller</title>
+	  <link rel="stylesheet" href="common/css/style-001.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+	  <script src="common/js/jquery.js"></script>
+    <script src="common/js/presentation.js"></script>
+    <script src="lower-thirds\settings.js"></script>
+    <style>
+      .title{
+        font-family: 'PT Sans Narrow', sans-serif;
+        letter-spacing: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 60px;
+        color:white;
+      }
+      .author{
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-size: 36px;
+        color:#FFAA00;
+        text-decoration: none;
+      }
+      .class{
+        font-size: 20px;
+        text-transform: uppercase;
+      }
+      .button{
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-size: 25px;
+        background: #162458;
+        border-color: #27366f;
+      }
+    </style>
+  </head>
+  <body style="background: var(--obs-background);">
+    <div class="pt-5 mt-4">
+      <h1 class="d-flex justify-content-center title">OVERLAY CONTROLLER</h1>
+      <br>
+      <h2 class="d-flex justify-content-center author">by <a class="author" href="https://www.instagram.com/jonathan_caputo">&nbsp;Jonathan Caputo</a></h2>
+      <h3 class="d-flex justify-content-center author class">(3ITIA/C MED)</h3>
+    </div>
+    <div id="presentation-lottie"></div>
+    <div class="fixed-bottom d-flex justify-content-between px-5 mx-5 mb-5">
+      <a class="btn btn-primary button px-5" href="./lower-thirds/control-panel.html">Demo</a>
+      <a class="btn btn-primary button px-5" href="https://github.com/Jonnycp/overlay-controller">GitHub</a>
+    </div>
+
+    <script>
+      document.body.onload = function(){
+      var message = new BroadcastChannel('presentation');
+      message.postMessage("0" + '|' + "OVERLAY CONTROLLER" + '|' + "Sovraimpressioni in modo facile! ");
+      console.log(message)
+    };
+    </script>
+  </body>
+</html>
