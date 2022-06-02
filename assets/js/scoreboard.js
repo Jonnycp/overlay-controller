@@ -1,8 +1,11 @@
 const generateScoreboard = (team1, team2) => {
-    let scoreboard = document.querySelector(".scoreboard");
+    let scoreboard = document.createElement("div");
+    scoreboard.classList.add("scoreboard");
     scoreboard.appendChild(generateTeam(team1));
     scoreboard.appendChild(generateSetsButtons());
     scoreboard.appendChild(generateTeam(team2, true));
+
+    return scoreboard;
 }
 
 const generateTeam = (team, right) => {
@@ -35,6 +38,8 @@ const createButton = (inner, classes, msg, team) => {
 
     if(team){
         button.addEventListener("click", e => socket.emit(msg, {team, set: findSet()}));
+    }else if(msg === "reset"){
+        button.addEventListener("click", () => socket.emit("reset"));
     }
     return button;
 }
@@ -79,11 +84,17 @@ const getTeam = (dom) => {
     return team;
 }
 
+const removeServe = () => {
+    document.querySelectorAll(".serve").forEach(s => s.classList.remove("serve"));
+}
+
 const addPoint = (team, set) => {
     let teamSelected = findTeam(team);
 
     if(gameSettings.teams[team.id-1].points[set]+1 <= gameSettings.sets["max-points"]){
         gameSettings.teams[team.id-1].points[set]++;
+        removeServe()
+        teamSelected.classList.add("serve")
     }
     teamSelected.querySelector("strong").innerText = gameSettings.teams[team.id-1].points[set];
 }
@@ -109,6 +120,7 @@ const updateScores = (score) => {
 }
 
 const changeSet = (set) => {
+    removeServe()
     gameSettings.sets["active-set"] = set;
 
     let sets = document.querySelectorAll(".sets button");
@@ -123,4 +135,10 @@ const changeSet = (set) => {
         }
     })
 }
-generateScoreboard(gameSettings.teams[0], gameSettings.teams[1]);
+
+const generatePage = (team1, team2) => {
+    let mainContainer = document.querySelector(".main-container");
+    mainContainer.insertBefore(generateScoreboard(team1, team2), document.querySelector("footer"));
+    mainContainer.insertBefore(createButton("RESET", ["reset"], "reset"), document.querySelector("footer"));
+    mainContainer.insertBefore(generateGraficsBtns(), document.querySelector("footer"));
+}
