@@ -31,3 +31,10 @@ socket.on('init', (gameSet) => {
 socket.on('addPoint', ({team, set}) => addPoint(team, set))
 socket.on('subPoint', ({team, set}) => subPoint(team, set))
 socket.on('changeSet', (set) => changeSet(set))
+socket.on('reset', (gameSet) => {
+    gameSettings = gameSet
+    updateScores();
+    removeServe()
+})
+
+socket.on('grafic', ({grafic, page}) => showGrafic(page, grafic))

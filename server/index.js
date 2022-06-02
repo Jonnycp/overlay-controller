@@ -40,6 +40,20 @@ io.on('connection', (socket) => {
         console.log('SET: ' + gameSettings.sets["current-set"]);
       }
     });
+
+    socket.on('reset', () => {
+      gameSettings.sets["current-set"] = 1;
+      gameSettings.teams.forEach(team => {
+        team.points = [0, 0, 0]
+      })
+      io.emit('reset', gameSettings);
+      console.log("RESET");
+    });
+
+    socket.on('grafic', ({grafic, page}) => {
+      io.emit('grafic', {grafic, page});
+      console.log("[GRAFICA] " + grafic.name + " - " + page.name);
+    });
 });
 
 server.listen(3000, () => {

@@ -171,6 +171,11 @@ nav h1 {
 .grafics .button .progress {
     margin: 2px 4px 0 4px;
     height: 5px;
+    background: var(--buttonDisabled);
+}
+
+.grafics .button .progress div {
+    background: var(--buttonActive);
 }
 
 footer {
@@ -185,12 +190,20 @@ footer h2 {
     text-align: center;
 }
 
+.reset {
+    background: var(--hover);
+    border: 2px solid var(--hover);
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
 @media (orientation: portrait) {
     #btns{
         display: none;
     }
 
-    .scoreboard, .grafics, #pages {
+    .scoreboard, .grafics, #pages, .reset {
         display: none!important;
     }
 
