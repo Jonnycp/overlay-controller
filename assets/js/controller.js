@@ -41,4 +41,26 @@ const renderPageButton = (page, active) => {
 
     return button;
 }
+
+const findCurrentPage = () => {
+    let activePage;
+    settings.pages.forEach((page) => {
+        if(page.name == document.querySelector("button.pageButton.active").innerText){
+            activePage = page;
+        }
+    })
+    return activePage;
+}
+
 settings.pages.forEach((page, i) => document.querySelector("#pages").appendChild(renderPageButton(page, i == 0)));
+
+const switchPage = (page) => {
+    switch(page){
+        case "scoreboard":
+            if(document.querySelector(".scoreboard") == null || document.querySelector(".scoreboard").children.length == 0){
+                generatePage(gameSettings.teams[0], gameSettings.teams[1])
+            }
+            break;
+    }
+}
+switchPage("scoreboard");
