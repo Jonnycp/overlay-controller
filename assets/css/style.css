@@ -8,8 +8,13 @@
     background: var(--gradient);
 }
 
-nav h1{
+nav h1 {
     margin-bottom: 0
+}
+
+#pages {
+    display: flex;
+    gap: 10px;
 }
 
 .pageButton:hover {
@@ -126,10 +131,17 @@ nav h1{
 .alert {
     width: 100%;
     border-radius: 0;
-    background: var(--danger);
     font-weight: bold;
     color: var(--light);
     border: 0;
+}
+
+.alert.danger {
+    background: red;
+}
+
+.alert.success {
+    background: green;
 }
 
 .grafics {
@@ -160,8 +172,7 @@ nav h1{
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
+    margin: 30px 0;
     width: 100%;
 }
 footer h2 {
@@ -177,7 +188,7 @@ footer h2 {
         display: none;
     }
 
-    .scoreboard, .grafics {
+    .scoreboard, .grafics, #pages {
         display: none!important;
     }
 
