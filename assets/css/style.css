@@ -1,0 +1,195 @@
+@import url('./utils.css');
+
+.bg-obs {
+    background: var(--obs-background)
+}
+
+.gradient {
+    background: var(--gradient);
+}
+
+nav h1{
+    margin-bottom: 0
+}
+
+.pageButton:hover {
+    color: var(--hover);
+    border: 2px var(--hover) solid;
+}
+  
+.pageButton.active {
+    color: var(--active);
+    border: 2px var(--active) solid;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container .scoreboard {
+    width: 90%;
+    background: var(--scoreboard);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    gap: 50px;
+}
+
+.scoreboard .team {
+    color: var(--light);
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 35%;
+    padding: 30px 0;
+}
+
+.scoreboard .team h2 {
+    font-size: 30px;
+}
+
+.scoreboard .team strong {
+    font-size: 50px;
+}
+
+.scoreboard .sets {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 25%;
+    gap: 10px;
+}
+
+.scoreboard .sets button {
+    background: var(--buttonDisabled);
+    border: 2px solid var(--buttonDisabled);
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 30px;
+}
+
+.scoreboard .sets button.active {
+    background: var(--buttonActive);
+    border: 2px solid var(--active);
+    color: var(--light)
+}
+
+.scoreboard .team .buttons {
+    position: absolute;
+    bottom: -20px;
+    width: 35%;
+    padding-left: 30px;
+    padding-right: 10px;
+}
+
+.scoreboard .team .buttons.right {
+    padding-left: 10px;
+    padding-right: 30px;
+}
+
+.scoreboard .team .buttons button:first-child {
+    width: 75%;
+}
+
+.scoreboard .team .buttons button {
+    width: 20%;
+    background: var(--secondary);
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 30px;
+    box-shadow: 0px -31px 68px rgba(96, 201, 123, 0.63);
+} 
+
+.scoreboard .team.serve {
+    border-width: 10px 0px 0px 10px;
+    border-style: solid;
+    border-color: var(--serve);
+    border-radius: 20px 10px 20px 20px;
+}
+
+.scoreboard .team.serve.right {
+    border-width: 10px 10px 0px 0px;
+    border-radius: 10px 20px 20px 20px;
+}
+
+.ruota {
+    display: none;
+}
+
+.alert {
+    width: 100%;
+    border-radius: 0;
+    background: var(--danger);
+    font-weight: bold;
+    color: var(--light);
+    border: 0;
+}
+
+.grafics {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    gap: 20px;
+}
+
+.grafics .button {
+    flex-basis: 40%;
+}
+
+.grafics button {
+    background: var(--buttonDisabled);
+    border: 2px solid var(--buttonDisabled);
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 30px;
+    width: 100%;
+}
+
+.grafics .button .progress {
+    margin: 2px 4px 0 4px;
+    height: 5px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+footer h2 {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 16px;
+    text-align: center;
+}
+
+@media (orientation: portrait) {
+    #btns{
+        display: none;
+    }
+
+    .scoreboard, .grafics {
+        display: none!important;
+    }
+
+    .ruota{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--light);
+        font-size: 30px;
+    }
+    .ruota img{
+        padding-top: 20px;
+    }
+}
+
