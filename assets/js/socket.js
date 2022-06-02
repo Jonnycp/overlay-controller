@@ -3,6 +3,7 @@ const socket = io(settings.socket);
 let timer = 1000;
 socket.on("connect", () => {
     timer = 1000;
+    socket.emit("init");
     sendAlert("Connesso al socket con successo", "success", true, 2000)
 });
 
@@ -22,3 +23,11 @@ socket.on("connect_error", (reason) => {
         timer += 100;
       }, timer);
 });
+
+socket.on('init', (gameSet) => {
+    gameSettings = gameSet
+    updateScores();
+});
+socket.on('addPoint', ({team, set}) => addPoint(team, set))
+socket.on('subPoint', ({team, set}) => subPoint(team, set))
+socket.on('changeSet', (set) => changeSet(set))
