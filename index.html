@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>EventoFortino Controller</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="./js/ospiti.js"></script>
+</head>
+
+<body class="bg-obs">
+
+  <nav class="navbar navbar-light gradient">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center flex-grow-2" href="javascript:location.reload()">
+        <img src="assets/logo.png" alt="logo-rp" width="50" height="50" class="d-inline-block align-text-top">
+        <b class="text-dark ms-3">Fork Overlay Controller</b>
+      </a>
+      <div id="btns">
+        <button id="ospiti" class="btn badge btn-dark fs-5 typeAnim" onclick="changeAnim(this)">Ospiti</button>
+        <button id="rp" class="btn badge btn-dark fs-5 typeAnim" onclick="changeAnim(this)">Rp</button>
+        <button id="nexts" class="btn badge btn-dark fs-5 typeAnim" onclick="changeAnim(this)">Nexts</button>
+      </div>
+    </div>
+  </nav>
+  <div class="container pt-4">
+    <div id="alert"></div>
+    <div class="row mb-5 border border-warning rounded">
+        <div class="col-10 d-flex align-items-center text fs-4" id="now" data-anim="ospiti">
+            
+        </div>
+        <div class="col-2 d-flex flex-column">
+          <button class="btn btn-dark typeAnim" onclick="change('add')">+</button>
+          <button class="btn btn-dark typeAnim" onclick="change('sub')">-</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div id="input">
+          <div class="input-group pb-3">
+            <span class="input-group-text input-group-obs">Nome e Cognome</span>
+            <input type="text" aria-label="Nome" placeholder="Nome" class="input form-control" id="name" autocomplete="off">
+            <input type="text" aria-label="Cognome" placeholder="Cognome" class="input form-control" id="cognome" autocomplete="off">
+          </div>
+          <div class="input-group">
+            <span class="input-group-text input-group-obs" style="width:155.91px;">Ruolo</span>
+            <textarea type="text" aria-label="Ruolo" placeholder="Ruolo" class="input form-control" id="ruolo" autocomplete="off"></textarea/>
+            <!-- TODO: Mettere max length -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-8">
+        <button class="btn btn-obs" type="submit" name="show" onclick="mostra()" id="show">MOSTRA</button>
+      </div>
+      <div class="col-4 d-flex align-items-center">
+        <div class="radio-position">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="radio-group-position" id="position-left" value="left" checked>
+            <label class="form-check-label text-white" for="position-left">Left</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="radio-group-position" id="position-right" value="right" disabled>
+            <label class="form-check-label text-white" for="position-right" disabled>Right</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <h2 class="text-white fs-5">Ospiti</h2>
+      <div id="lista" class="col-12 pt-5"></div>
+    </div>
+
+    <div class="row pt-5 mt-3">
+      <div class="col-6">
+        <!-- <h2 class="text-white fs-5">Diretta</h2> -->
+        <!-- <iframe src="https://www.youtube.com/embed/2E4zaGfkwg8?controls=0&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+      </div>
+      <div class="col-6">
+        <!-- TODO: Prossimamente: Grafica in onda -->
+      </div>
+    </div>
+
+    <footer>
+      <h2 class="footer-text">© 2022 - <a href="mailto:jonathan-caputo@hotmail.com">Jonathan Caputo</a></h2>
+    </footer>
+  </div>
+  <script src="./js/controller.js"></script>
+</body>
+
+</html>
