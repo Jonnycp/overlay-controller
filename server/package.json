@@ -1,0 +1,34 @@
+{
+  "dependencies": {
+    "socket.io": "^4.5.1"
+  },
+  "name": "overlay-controller-server",
+  "version": "1.0.0",
+  "description": "Server socket.io per l'overlay controller",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jonnycp/overlay-controller.git"
+  },
+  "keywords": [
+    "obs",
+    "overlay",
+    "lowers",
+    "scoreboard",
+    "points",
+    "volley",
+    "socketio",
+    "socket",
+    "websocket"
+  ],
+  "author": "Jonathan Caputo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jonnycp/overlay-controller/issues"
+  },
+  "homepage": "https://github.com/Jonnycp/overlay-controller#readme"
+}
