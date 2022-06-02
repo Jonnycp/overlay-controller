@@ -15,7 +15,7 @@ const sendAlert = (message, type="danger", dismissable=true, timer) => {
         const dismissButton = document.createElement("button");
         dismissButton.classList.add("btn-close");
         dismissButton.type = "button"
-        dismissButton.setAttribute("data-dismiss", "alert");
+        dismissButton.setAttribute("data-bs-dismiss", "alert");
         dismissButton.setAttribute("aria-label", "Close");
         alert.appendChild(dismissButton);
     }
@@ -33,7 +33,8 @@ const sendAlert = (message, type="danger", dismissable=true, timer) => {
 const renderPageButton = (page, active) => {
     let button = document.createElement("button");
     button.id = page.slug;
-    button.classList.add("btn", "badge", "btn-dark", "fs-5", "pageButton", active ? "active" : null);
+    button.classList.add("btn", "badge", "btn-dark", "fs-5", "pageButton");
+    active ? button.classList.add("active") : null
     button.innerText = page.name;
     
     button.addEventListener("click", (e) => switchPage(page.slug));
