@@ -2,16 +2,52 @@ let settings = {
     "pages": [
         {
             "name": "Punteggi",
-            "slug": "scoreboard"
+            "slug": "scoreboard",
+            "grafics": [
+                {
+                    "name": "Singolo",
+                    "slug": "single",
+                    "progress": false
+                },
+                {
+                    "name": "Centrale",
+                    "slug": "central",
+                    "progress": true
+                },
+            ]
         },
         {
             "name": "Team",
-            "slug": "team"
+            "slug": "team",
+            "grafics": [
+                {
+                    "name": "Singolo",
+                    "slug": "single",
+                    "progress": true
+                },
+                {
+                    "name": "Centrale",
+                    "slug": "central",
+                    "progress": true
+                },
+            ]
         },
         {
             "name": "Lowers",
-            "slug": "lowers"
+            "slug": "lowers",
+            "grafics": [
+                {
+                    "name": "Singolo",
+                    "slug": "single",
+                    "progress": true
+                },
+                {
+                    "name": "Centrale",
+                    "slug": "central",
+                    "progress": true
+                },
+            ]
         }
     ],
-    "socket": "127.0.0.1:3000"
+    "socket": "192.168.1.8:3000"
 }
