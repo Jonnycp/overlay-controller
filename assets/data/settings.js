@@ -50,5 +50,5 @@ let settings = {
             ]
         }
     ],
-    "socket": "79.18.113.93:3000"
+    "socket": "http://dev-dabook.duckdns.org:3000"
 }
