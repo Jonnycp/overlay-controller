@@ -52,15 +52,19 @@ const generateSetsButtons = () => {
         let button = createButton((i+1)+" SET", []);
         i == 0 ? button.classList.add("active") : null;
 
-        button.addEventListener("click", e => socket.emit("changeSet", i))
+        button.addEventListener("click", e => socket.emit("changeSet", {set: i, teams: getCurrentTeams()}))
         setButtons.appendChild(button);
     }
 
     return setButtons;
 }
 
+const getCurrentTeams = () => {
+    return [getTeam(document.querySelectorAll(".team")[0]), getTeam(document.querySelectorAll(".team")[1])]
+}
+
 const findSet = () => {
-    return parseInt(document.querySelector(".sets button.active").innerText.substring(0, 2))-1;
+    return parseInt(document.querySelector(".sets button.active").innerText[0])-1;
 }
 
 const findTeam = (team) => {
@@ -97,6 +101,8 @@ const addPoint = (team, set) => {
         teamSelected.classList.add("serve")
     }
     teamSelected.querySelector("strong").innerText = gameSettings.teams[team.id-1].points[set];
+
+    showGrafic(settings.pages[0].grafics[0], getCurrentTeams())
 }
 
 const subPoint = (team, set) => {
@@ -106,6 +112,8 @@ const subPoint = (team, set) => {
         gameSettings.teams[team.id-1].points[set]--;
     }
     teamSelected.querySelector("strong").innerText = gameSettings.teams[team.id-1].points[set];
+
+    showGrafic(settings.pages[0].grafics[0], getCurrentTeams())
 }
 
 const updateScores = (score) => {
@@ -117,23 +125,27 @@ const updateScores = (score) => {
     })
 
     score ? changeSet(gameSettings.sets["active-set"]) : null;
+
+    showGrafic(settings.pages[0].grafics[0], getCurrentTeams())
 }
 
 const changeSet = (set) => {
     removeServe()
     gameSettings.sets["active-set"] = set;
-
+    
     let sets = document.querySelectorAll(".sets button");
     sets.forEach(s => {
         if(s.classList.contains("active")){
             s.classList.remove("active");
         }
-
+        
         if(s.innerText.substring(0, 2) == gameSettings.sets["active-set"]){
             s.classList.add("active");
+            checkWin(getTeam(document.querySelectorAll(".team")[0]), getTeam(document.querySelectorAll(".team")[1]));
             updateScores(false)
         }
     })
+    showGrafic(settings.pages[0].grafics[0], getCurrentTeams())
 }
 
 const generatePage = (team1, team2) => {
@@ -141,4 +153,25 @@ const generatePage = (team1, team2) => {
     mainContainer.insertBefore(generateScoreboard(team1, team2), document.querySelector("footer"));
     mainContainer.insertBefore(createButton("RESET", ["reset"], "reset"), document.querySelector("footer"));
     mainContainer.insertBefore(generateGraficsBtns(), document.querySelector("footer"));
+    mainContainer.insertBefore(generatePageTeams(), document.querySelector("footer"));
 }
+
+//! Farm infinita di punti se si switcha contiuamente il set
+//TODO: Fixare al più presto
+const checkWin = (team1, team2) => {
+    let set = findSet();
+    if(set == 0){
+        set = 3;
+    }
+    let team1Points = team1.points[set-1];
+    let team2Points = team2.points[set-1];
+
+    if(team1Points > team2Points){
+        team1.wins++;
+        console.log(team1.name, " wins");
+    }else if(team1Points < team2Points){
+        team2.wins++;
+        console.log(team2.name, " wins");
+    }
+}
+
