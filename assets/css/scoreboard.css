@@ -1,0 +1,75 @@
+.scoreboard{
+    transform: translate(45px, 50px) scale(0.7);
+    width: 541px;
+    height: 85px;
+}
+
+.team{
+    background: url("../img/baseScoreboard.png");
+    width: 100%;
+    height: 100%;
+    animation: swing-in-right-fwd 1.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    display: flex;
+    align-items: center;
+}
+
+.team img{
+    opacity: 0;
+}
+
+.team.serve img{
+    opacity: 1;
+}
+
+.team.border{
+    border-top-color: #ccc;
+    border-top-style: solid;
+    border-top-width: 3px;
+}
+
+.none{
+    display: none;
+}
+
+.team h2{
+    font-family: 'Metropolis', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 50px;
+    color: #FFFFFF;
+    padding-left: 30px;
+    width: 265px;
+}
+
+.team h3{
+    font-family: 'Metropolis', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 55px;
+    line-height: 55px;
+    width: 95px;
+    text-align: center;
+}
+
+h3.set{
+    color: white;
+    font-size: 50px;
+}
+
+@keyframes swing-in-right-fwd {
+    0% {
+      -webkit-transform: rotateY(-100deg);
+              transform: rotateY(-100deg);
+      -webkit-transform-origin: right;
+              transform-origin: right;
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+      -webkit-transform-origin: right;
+              transform-origin: right;
+      opacity: 1;
+    }
+  }
