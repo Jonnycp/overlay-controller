@@ -22,7 +22,8 @@ let gameSettings = {
                     "role": "player"
                 }
             ],
-            "points": [0, 0, 0]
+            "points": [0, 0, 0],
+            "wins": 0
         },
         {
             "id": 2,
@@ -40,7 +41,8 @@ let gameSettings = {
                     "role": "player"
                 }
             ],
-            "points": [0, 0, 0]
+            "points": [0, 0, 0],
+            "wins": 0
         }
     ],
     "arbitri": [

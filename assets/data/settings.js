@@ -7,7 +7,8 @@ let settings = {
                 {
                     "name": "Singolo",
                     "slug": "single",
-                    "progress": false
+                    "progress": false,
+                    "show": false
                 },
                 {
                     "name": "Centrale",
