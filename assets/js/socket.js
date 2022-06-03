@@ -24,9 +24,11 @@ socket.on("connect_error", (reason) => {
       }, timer);
 });
 
-socket.on('init', (gameSet) => {
-    gameSettings = gameSet
+socket.on('init', (data) => {
+    gameSettings = data.gameSettings;
+    settings.pages = data.grafics;
     updateScores();
+    updateButtons();
 });
 socket.on('addPoint', ({team, set}) => addPoint(team, set))
 socket.on('subPoint', ({team, set}) => subPoint(team, set))
@@ -36,5 +38,7 @@ socket.on('reset', (gameSet) => {
     updateScores();
     removeServe()
 })
+socket.on('changeTeam', ({team, n}) => changeTeam(team, n-1))
 
-socket.on('grafic', ({grafic, page}) => showGrafic(page, grafic))
+
+socket.on('grafic', (grafic) => showGrafic(grafic, getCurrentTeams()))
