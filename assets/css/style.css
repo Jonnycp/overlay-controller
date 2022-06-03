@@ -168,6 +168,11 @@ nav h1 {
     width: 100%;
 }
 
+.grafics .button.active button {
+    background: var(--buttonActive);
+    border: 2px solid var(--active);
+}
+
 .grafics .button .progress {
     margin: 2px 4px 0 4px;
     height: 5px;
@@ -175,7 +180,7 @@ nav h1 {
 }
 
 .grafics .button .progress div {
-    background: var(--buttonActive);
+    background: var(--active);
 }
 
 footer {
