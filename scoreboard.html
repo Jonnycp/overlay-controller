@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Overlay Controller - Scoreboard</title>
+    <meta name="title" content="Overlay Controller - Scoreboard" />
+    <meta
+      name="description"
+      content="Segna i punti della partita in corso e mostra le grafiche su obs"
+    />
+    <meta name="author" content="Jonathan Caputo" />
+
+    <meta property="og:title" content="Overlay Controller - Scoreboard" />
+    <meta
+      property="og:url"
+      content="https://jonnycp.github.io/overlay-controller/"
+    />
+    <meta
+      property="og:description"
+      content="Segna i punti della partita in corso e mostra le grafiche su obs"
+    />
+
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+
+    <link
+      rel="canonical"
+      href="https://jonnycp.github.io/overlay-controller/index.html"
+    />
+    <meta
+      name="apple-mobile-web-app-title"
+      content="Overlay Controller - Scoreboard"
+    />
+    <meta name="application-name" content="Overlay Controller - Scoreboard" />
+
+    <link rel="stylesheet" href="./assets/css/scoreboard.css" />
+    <link rel="stylesheet" href="./assets/css/fonts.css" />
+  </head>
+  <body>
+    <div class="scoreboard none">
+      <div id="team1" class="team serve">
+        <img src="./assets/img/triangoli.png" />
+        <h2></h2>
+        <h3 class="set">0</h3>
+        <h3 class="points">0</h3>
+      </div>
+      <div id="team2" class="team border">
+        <img src="./assets/img/triangoli.png" />
+        <h2></h2>
+        <h3 class="set">0</h3>
+        <h3 class="points">0</h3>
+      </div>
+    </div>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
+    <script src="./assets/data/settings.js"></script>
+    <script>
+      const socket = io(settings.socket);
+      socket.on("connect", () => {
+        console.log("Connected to socket");
+      });
+
+      socket.on('scoreUpdate', (data) => {
+        if (data.slug == "single") {
+          if (data.show) {
+            document.querySelector(".scoreboard").classList.remove("none");
+          } else {
+            document.querySelector(".scoreboard").classList.add("none");
+          }
+          let teams = data.teams;
+
+          document.querySelector("#team1 h2").innerText =
+            teams[0].name.toUpperCase();
+          document.querySelector("#team2 h2").innerText =
+            teams[1].name.toUpperCase();
+          document.querySelector("#team1 .set").innerText = teams[0].wins;
+          document.querySelector("#team2 .set").innerText = teams[1].wins;
+          document.querySelector("#team1 .points").innerText = teams[0].points;
+          document.querySelector("#team2 .points").innerText = teams[1].points;
+
+          if (teams[0].serve) {
+            document.querySelector("#team1").classList.add("serve");
+            document.querySelector("#team2").classList.remove("serve");
+          }
+          if (teams[1].serve) {
+            document.querySelector("#team1").classList.remove("serve");
+            document.querySelector("#team2").classList.add("serve");
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
