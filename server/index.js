@@ -1,6 +1,7 @@
 const { Server } = require("socket.io");
 const http = require('http');
 const gameSettings = require("./teams.json")
+const grafics = require("./grafics.json")
 
 const server = http.createServer();
 const io = new Server(server, { cors: { origin: '*' } });
@@ -13,7 +14,7 @@ io.on('connection', (socket) => {
       });
     
     socket.on('init', () => {
-      io.emit('init', gameSettings);
+      io.emit('init', {gameSettings, grafics});
     });
 
     socket.on('addPoint', ({team, set}) => {
@@ -32,11 +33,12 @@ io.on('connection', (socket) => {
       }
     });
 
-    socket.on('changeSet', (set) => {
+    socket.on('changeSet', ({teams, set}) => {
       set++;
       if(set > 0 && set <= gameSettings.sets.number){
         io.emit('changeSet', set);
         gameSettings.sets["current-set"] = set;
+        checkWin(teams[0], teams[1], set)
         console.log('SET: ' + gameSettings.sets["current-set"]);
       }
     });
@@ -50,12 +52,42 @@ io.on('connection', (socket) => {
       console.log("RESET");
     });
 
-    socket.on('grafic', ({grafic, page}) => {
-      io.emit('grafic', {grafic, page});
-      console.log("[GRAFICA] " + grafic.name + " - " + page.name);
+    socket.on('grafic', ({grafic, page, index}) => {
+      grafics.forEach(g => {
+        if(g.name == page.name){
+          g.grafics[index].show = !g.grafics[index].show
+          io.emit('grafic', g.grafics[index]);
+          console.log("[GRAFICA] " + grafic.name + " - " + page.name);
+        }
+      })
+    });
+
+    socket.on('scoreUpdate', (data) => {
+      io.emit('scoreUpdate', data);
+    });
+
+    socket.on('changeTeam', (data) => {
+      io.emit('changeTeam', data);
     });
 });
 
 server.listen(3000, () => {
     console.log('In ascolto sulla porta 3000');
   });
+
+const checkWin = (team1, team2, set) => {
+  set--;
+  if(set == 0){
+    set = 3;
+  }
+  let team1Points = team1.points[set-1];
+  let team2Points = team2.points[set-1];
+  
+  if(team1Points > team2Points){
+      team1.wins++;
+      console.log(team1.name + " wins set " + set);
+  }else if(team1Points < team2Points){
+      team2.wins++;
+      console.log(team2.name + " wins set " + set);
+  }
+}
