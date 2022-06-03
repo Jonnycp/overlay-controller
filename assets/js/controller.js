@@ -58,9 +58,22 @@ const switchPage = (page) => {
     switch(page){
         case "scoreboard":
             if(document.querySelector(".scoreboard") == null || document.querySelector(".scoreboard").children.length == 0){
+
                 generatePage(gameSettings.teams[0], gameSettings.teams[1])
+            }
+            break;
+        case "team":
+            if(document.querySelector(".team") == null || document.querySelector(".team").children.length == 0){
+
+                generatePageTeams(gameSettings.teams[0], gameSettings.teams[1])
             }
             break;
     }
 }
 switchPage("scoreboard");
+
+const cleanPage = () => {
+    document.querySelector(".scoreboard").remove();
+    document.querySelector(".reset").remove();
+    document.querySelector(".grafics").remove();
+}
